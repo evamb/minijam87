@@ -4,3 +4,10 @@
 
 [node name="Grid" type="Node2D"]
 script = ExtResource( 1 )
+level_coordinates = {
+"bows": PoolVector2Array(  ),
+"crossbows": PoolVector2Array(  ),
+"stones": PoolVector2Array(  ),
+"swords": PoolVector2Array(  ),
+"trees": PoolVector2Array(  )
+}

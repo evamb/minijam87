@@ -1,4 +1,6 @@
+tool
 extends Area2D
+class_name GridCell
 
 enum OccupationState { EMPTY = 0, OCCUPIED = 1 }
 
@@ -15,9 +17,9 @@ func set_size(size: int) -> void:
 	collision_shape.shape.set_extents(Vector2(size / 2.0, size / 2.0))
 
 
-func _on_GridCell_mouse_entered() -> void:
-	modulate = Color.blue if occupation_state == OccupationState.EMPTY else Color.red
-
-
-func _on_GridCell_mouse_exited() -> void:
-	modulate = Color.white
+func set_highlighted(highlighted: bool) -> void:
+	if highlighted:
+		modulate = Color.blue if occupation_state == OccupationState.EMPTY else Color.red
+	else:
+		modulate = Color.white
+		

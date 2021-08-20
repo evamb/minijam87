@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 export(int) var width;
@@ -27,9 +28,10 @@ func _process(delta: float) -> void:
 			for y in range(-floor(half_height), ceil(half_height)):
 				var cell = GridCell.instance()
 				add_child(cell)
-				cell.set_size(cell_size)
+				cell.set_size(cell_size - 2)
 				cell.position.x = x * cell_size + (1 - rest_width) * cell_size / 2.0
 				cell.position.y = y * cell_size + (1 - rest_height) * cell_size / 2.0
 				cell.occupation_state = randi() % 2
+				cell.set_owner(get_tree().get_edited_scene_root())
 
 

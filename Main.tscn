@@ -1,11 +1,565 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://grid/Grid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level/background.png" type="Texture" id=2]
+[ext_resource path="res://grid/GridCell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cursor/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://grid/GridCell.gd" type="Script" id=5]
 
 [node name="Main" type="Node2D"]
 
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 2 )
+centered = false
+
 [node name="Grid" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 540 )
-width = 16
-height = 9
+width = 20
+height = 6
 cell_size = 64
+level_coordinates = {
+"bows": PoolVector2Array(  ),
+"crossbows": PoolVector2Array(  ),
+"stones": PoolVector2Array(  ),
+"swords": PoolVector2Array(  ),
+"trees": PoolVector2Array(  )
+}
+
+[node name="GridCell" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -608, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell2" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -608, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell3" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -608, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell4" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -608, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell5" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -608, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell6" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -608, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell7" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -544, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell8" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -544, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell9" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -544, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell10" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -544, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell11" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -544, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell12" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -544, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell13" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -480, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell14" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -480, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell15" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -480, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell16" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -480, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell17" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -480, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell18" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -480, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell19" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -416, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell20" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -416, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell21" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -416, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell22" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -416, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell23" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -416, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell24" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -416, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell25" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -352, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell26" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -352, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell27" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -352, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell28" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -352, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell29" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -352, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell30" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -352, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell31" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -288, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell32" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -288, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell33" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -288, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell34" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -288, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell35" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -288, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell36" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -288, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell37" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -224, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell38" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -224, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell39" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -224, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell40" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -224, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell41" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -224, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell42" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -224, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell43" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -160, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell44" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -160, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell45" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -160, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell46" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -160, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell47" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -160, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell48" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -160, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell49" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -96, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell50" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -96, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell51" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -96, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell52" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -96, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell53" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -96, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell54" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -96, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell55" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -32, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell56" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -32, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell57" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -32, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell58" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -32, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell59" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -32, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell60" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( -32, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell61" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 32, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell62" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 32, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell63" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 32, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell64" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 32, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell65" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 32, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell66" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 32, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell67" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 96, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell68" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 96, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell69" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 96, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell70" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 96, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell71" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 96, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell72" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 96, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell73" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 160, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell74" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 160, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell75" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 160, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell76" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 160, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell77" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 160, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell78" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 160, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell79" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 224, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell80" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 224, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell81" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 224, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell82" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 224, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell83" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 224, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell84" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 224, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell85" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 288, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell86" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 288, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell87" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 288, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell88" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 288, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell89" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 288, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell90" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 288, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell91" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 352, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell92" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 352, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell93" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 352, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell94" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 352, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell95" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 352, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell96" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 352, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell97" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 416, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell98" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 416, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell99" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 416, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell100" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 416, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell101" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 416, 96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell102" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 416, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell103" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 480, -160 )
+script = ExtResource( 5 )
+
+[node name="GridCell104" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 480, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell105" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 480, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell106" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 480, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell107" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 480, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell108" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 480, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell109" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 544, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell110" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 544, -96 )
+script = ExtResource( 5 )
+
+[node name="GridCell111" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 544, -32 )
+script = ExtResource( 5 )
+
+[node name="GridCell112" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 544, 32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell113" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 544, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell114" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 544, 160 )
+script = ExtResource( 5 )
+
+[node name="GridCell115" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 608, -160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell116" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 608, -96 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell117" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 608, -32 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="GridCell118" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 608, 32 )
+script = ExtResource( 5 )
+
+[node name="GridCell119" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 608, 96 )
+script = ExtResource( 5 )
+
+[node name="GridCell120" type="Area2D" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 608, 160 )
+script = ExtResource( 5 )
+occupation_state = 1
+
+[node name="Cursor" parent="." instance=ExtResource( 4 )]
