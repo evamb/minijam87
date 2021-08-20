@@ -1,5 +1,8 @@
 extends Area2D
 
+enum OccupationState { EMPTY = 0, OCCUPIED = 1 }
+
+export(OccupationState) var occupation_state = OccupationState.EMPTY
 
 onready var collision_shape = $CollisionShape2D
 
@@ -13,7 +16,7 @@ func set_size(size: int) -> void:
 
 
 func _on_GridCell_mouse_entered() -> void:
-	modulate = Color.blue
+	modulate = Color.blue if occupation_state == OccupationState.EMPTY else Color.red
 
 
 func _on_GridCell_mouse_exited() -> void:
