@@ -21,11 +21,12 @@ var _hit_marks_enabled = false setget set_hit_mark_enabled
 var _droppable_on_cursor = false setget set_droppable_on_cursor
 var _hovering = false setget set_hovering
 var _on_enemy_side = false setget set_on_enemy_side
+var _look_through = false setget set_look_through
 
 onready var Obstacle = preload("res://cell_object/Obstacle.tscn")
 onready var cell_object_map = {
-	"stone": Obstacle,
-	"tree": Obstacle,
+	"rock": preload("res://cell_object/obstacles/Rock.tscn"),
+	"tree": preload("res://cell_object/obstacles/Tree.tscn"),
 	"crossbow": preload("res://cell_object/soldiers/Crossbow.tscn"),
 	"sword": preload("res://cell_object/soldiers/Sword.tscn"),
 	"bow": preload("res://cell_object/soldiers/Bow.tscn"),
@@ -34,6 +35,11 @@ onready var cell_object_map = {
 
 func _ready() -> void:
 	pass
+
+
+func set_look_through(enabled: bool) -> void:
+	_look_through = enabled;
+	_update_modulate()
 
 
 func set_on_enemy_side(enabled: bool) -> void:
@@ -45,6 +51,9 @@ func set_hovering(enabled: bool) -> void:
 	_hovering = enabled
 	if not enabled:
 		_show_occupant_hit_marks(false)
+	var lower_cell = $"/root/Main/Grid".get_cell(_cell_pos + Vector2.DOWN)
+	if lower_cell:
+		lower_cell.set_look_through(enabled)
 	_update_modulate()
 
 
@@ -126,6 +135,8 @@ func _update_modulate() -> void:
 		[false, true, true, true]:
 			modulate = DROP_BLOCKED_COLOR
 		_: modulate = EMPTY_COLOR
+	if _occupant and _occupant.is_large:
+		_occupant.modulate.a = 0.3 if _look_through else 1
 
 
 func _show_occupant_hit_marks(enabled: bool) -> void:

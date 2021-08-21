@@ -7,6 +7,7 @@ var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos
 
 export(bool) var can_be_moved
 export(bool) var blocks_drop
+export(bool) var is_large
 
 onready var _tween = $Tween
 
@@ -27,7 +28,7 @@ func set_target(pos: Vector2, do_tween = true) -> void:
 		global_position = pos
 
 
-func hit(source: CellObject) -> bool:
+func hit(_source: CellObject) -> bool:
 	# returns true if hit should continue moving
 	return true
 

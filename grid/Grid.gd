@@ -1,7 +1,7 @@
 tool
 extends Node2D
 
-var level: Dictionary = {}
+var _level: Dictionary = {}
 
 export(int) var width;
 export(int) var height;
@@ -14,12 +14,18 @@ export(Dictionary) var level_coordinates = {
 onready var GridCell = preload("res://grid/GridCell.tscn")
 
 
+func get_cell(coords: Vector2) -> GridCell:
+	if _level.has(coords):
+		return _level[coords]
+	return null
+
+
 func _ready() -> void:
 	if not Engine.editor_hint:
 		_build_grid()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if build:
 		_build_grid()
 
@@ -39,6 +45,7 @@ func _build_grid() -> void:
 			var coords = Vector2(x, y)
 			var cell = GridCell.instance()
 			cell.set_cell_pos(coords)
+			_level[coords] = cell
 			add_child(cell)
 			cell.set_size(cell_size - 2)
 			cell.position.x = x * cell_size + (1 - rest_width) * cell_size / 2.0
