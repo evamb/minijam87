@@ -2,32 +2,60 @@ tool
 extends Area2D
 class_name GridCell
 
-enum OccupationState { EMPTY = 0, OCCUPIED = 1 }
+var _occupant: CellObject = null setget set_occupant
 
-export(OccupationState) var occupation_state = OccupationState.EMPTY
-
-onready var collision_shape = $CollisionShape2D
+onready var Soldier = preload("res://cell_object/Soldier.tscn")
+onready var Obstacle = preload("res://cell_object/Obstacle.tscn")
+onready var cell_object_map = {
+	"stone": Obstacle,
+	"tree": Obstacle,
+	"crossbow": Soldier,
+	"sword": Soldier,
+	"bow": Soldier,
+}
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-#this should be replaced by proper occupants later
-func set_occupant(state: int) -> void:
-	occupation_state = state
-	modulate = Color.gray if state == OccupationState.OCCUPIED else Color.white
+
+func set_occupant(cell_object: CellObject) -> void:
+	_occupant = cell_object
+	print("set occupant can be moved? %s" % (cell_object.can_be_moved))
+	if cell_object != null:
+		cell_object.global_position = global_position
+
+
+func create_occupant(occupant: String) -> void:
+	var cell_object = cell_object_map[occupant].instance()
+	get_parent().add_child(cell_object)
+	cell_object.set_owner(get_tree().get_edited_scene_root())
+	cell_object.global_position = global_position
+	set_occupant(cell_object)
+
+
+func pick_occupant() -> CellObject:
+	var picked = _occupant
+	_occupant = null
+	return picked
 
 
 func set_size(size: int) -> void:
-	collision_shape.shape.set_extents(Vector2(size / 2.0, size / 2.0))
+	#collision_shape.shape.set_extents(Vector2(size / 2.0, size / 2.0))
+	scale = Vector2.ONE * size / 64.0 
 
 
 func set_highlighted(highlighted: bool) -> void:
-	if highlighted:
-		modulate = Color.blue if occupation_state == OccupationState.EMPTY else Color.red
+	print("setting highlighted %s, occupant can be moved? %s" % [highlighted, _occupant != null and _occupant.can_be_moved])
+	if highlighted and _occupant != null and _occupant.can_be_moved:
+		modulate = Color.blue
 	else:
-		modulate = Color.gray if occupation_state == OccupationState.OCCUPIED else Color.white
+		modulate = Color.white
 
 
-func is_occupied() -> bool:
-	return occupation_state == OccupationState.OCCUPIED
+func occupant_can_be_moved() -> bool:
+	return _occupant != null and _occupant.can_be_moved
+	
+
+func occupant_blocks_drop() -> bool:
+	return _occupant != null and _occupant.blocks_drop

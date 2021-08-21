@@ -9,13 +9,31 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "CellObject",
+"language": "GDScript",
+"path": "res://cell_object/CellObject.gd"
+}, {
 "base": "Area2D",
 "class": "GridCell",
 "language": "GDScript",
 "path": "res://grid/GridCell.gd"
+}, {
+"base": "CellObject",
+"class": "Obstacle",
+"language": "GDScript",
+"path": "res://cell_object/Obstacle.gd"
+}, {
+"base": "CellObject",
+"class": "Soldier",
+"language": "GDScript",
+"path": "res://cell_object/Soldier.gd"
 } ]
 _global_script_class_icons={
-"GridCell": ""
+"CellObject": "",
+"GridCell": "",
+"Obstacle": "",
+"Soldier": ""
 }
 
 [application]

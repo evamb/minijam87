@@ -1,19 +1,17 @@
-tool
+#tool
 extends Node2D
 
-enum OccupantTypes {
-	STONES = 0, TREES = 1, SWORDS = 2, CROSSBOWS = 3, BOWS = 4
-}
 
 export(int) var width;
 export(int) var height;
 export(int) var cell_size;
 export(bool) var build;
 export(Dictionary) var level_coordinates = {
-	Vector2(12, 4): 1
+	Vector2(12, 4): "stone"
 }
 
 onready var GridCell = preload("res://grid/GridCell.tscn")
+
 
 func _process(delta: float) -> void:
 	if build:
@@ -33,11 +31,10 @@ func _process(delta: float) -> void:
 				cell.set_size(cell_size - 2)
 				cell.position.x = x * cell_size + (1 - rest_width) * cell_size / 2.0
 				cell.position.y = y * cell_size + (1 - rest_height) * cell_size / 2.0
+				cell.set_owner(get_tree().get_edited_scene_root())
 				var pos = Vector2(x + width_offset, y + height_offset)
 				if level_coordinates.has(pos):
-					cell.set_occupant(level_coordinates[pos])
-				else:
-					cell.set_occupant(0)
-				cell.set_owner(get_tree().get_edited_scene_root())
+					cell.create_occupant(level_coordinates[pos])
+				
 
 
