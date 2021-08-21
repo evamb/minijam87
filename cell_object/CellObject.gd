@@ -10,6 +10,7 @@ export(bool) var blocks_drop
 export(bool) var is_large
 
 onready var _tween = $Tween
+onready var _sprite = $Sprite
 
 func get_cell_pos() -> Vector2:
 	return _cell_pos
@@ -21,6 +22,7 @@ func set_cell_pos(cell_pos: Vector2) -> void:
 
 func set_direction(dir: int) -> void:
 	_direction = dir
+	_sprite.flip_h = dir < 0
 
 
 func set_target(pos: Vector2, do_tween = true) -> void:
