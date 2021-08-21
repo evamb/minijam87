@@ -1,8 +1,11 @@
 extends Area2D
 
+signal can_undo
+
 var _latest_area: GridCell
 var _dragged_area: GridCell
 var _picked_occupant: CellObject
+var _undo_stack: Array
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
@@ -18,9 +21,22 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_released("mouse_left") and _dragged_area:
 		_drop_occupant()
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		_undo()
 	
 	if _dragged_area:
 		_picked_occupant.set_target(global_position, false)
+
+
+func _undo() -> void:
+	var fromTo = _undo_stack.pop_back()
+	if fromTo:
+		var occupant = fromTo[1].pick_occupant()
+		fromTo[0].set_occupant(occupant)
+	
+	if _undo_stack.size() == 0:
+		emit_signal("can_undo", false)
 
 
 func _drop_occupant() -> void:
@@ -29,6 +45,8 @@ func _drop_occupant() -> void:
 		_dragged_area.set_occupant(_picked_occupant)
 	else:
 		_latest_area.set_occupant(_picked_occupant)
+		_undo_stack.append([_dragged_area, _latest_area])
+		emit_signal("can_undo", true)
 	if _latest_area:
 		_latest_area.set_droppable_on_cursor(false)
 	_picked_occupant.z_index -= 1000
@@ -60,3 +78,8 @@ func _area_exited(area: Area2D) -> void:
 		area.set_droppable_on_cursor(false)
 		if _latest_area == area:
 			_latest_area = null
+
+
+func _on_UndoButton_button_up() -> void:
+	if not _dragged_area:
+		_undo()
