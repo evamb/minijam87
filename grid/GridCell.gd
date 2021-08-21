@@ -35,7 +35,7 @@ onready var cell_object_map = {
 
 
 func _ready() -> void:
-	pass
+	modulate.a = 0
 
 
 func set_exceeds_mana(enabled: bool) -> void:
@@ -147,6 +147,10 @@ func _update_modulate() -> void:
 		_: modulate = EMPTY_COLOR
 	if _occupant and _occupant.is_large:
 		_occupant.modulate.a = 0.3 if _look_through else 1.0
+	if modulate != EMPTY_COLOR:
+		modulate.a = 0.8
+	else:
+		modulate.a = 0
 
 
 func _show_occupant_hit_marks(enabled: bool) -> void:

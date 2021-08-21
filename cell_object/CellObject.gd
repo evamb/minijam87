@@ -26,11 +26,8 @@ func set_direction(dir: int) -> void:
 
 
 func set_target(pos: Vector2, do_tween = true) -> void:
-	if do_tween:
-		_tween.interpolate_property(self, "global_position", global_position, pos, 0.5, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-		_tween.start()
-	else:
-		global_position = pos
+	_tween.interpolate_property(self, "global_position", global_position, pos, 0.5 if do_tween else 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	_tween.start()
 
 
 func hit(_hit_info: HitInfo) -> bool:
