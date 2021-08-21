@@ -95,7 +95,12 @@ func create_occupant(occupant: String) -> void:
 	get_parent().add_child(cell_object)
 	cell_object.set_owner(get_tree().get_edited_scene_root())
 	cell_object.set_direction(-1 if position.x > 0 else 1)
+	cell_object.global_position = global_position
 	set_occupant(cell_object)
+	if cell_object.has_method("spawn"):
+		yield(cell_object.spawn(), "completed")
+	else:
+		yield(get_tree(), "idle_frame")
 
 
 func pick_occupant() -> CellObject:

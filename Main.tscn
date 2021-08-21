@@ -347,31 +347,50 @@ margin_bottom = 90.0
 [node name="VBoxContainer" parent="CanvasLayer/IngameUI" index="0"]
 margin_bottom = 1160.0
 
-[node name="HBoxContainer2" parent="CanvasLayer/IngameUI/VBoxContainer" index="1"]
+[node name="HBoxContainer" parent="CanvasLayer/IngameUI/VBoxContainer" index="0"]
+margin_bottom = 1150.0
+
+[node name="RestartButton" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer" index="0"]
+margin_top = 410.0
+margin_bottom = 490.0
+
+[node name="UndoButton" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer" index="1"]
+margin_top = 515.0
+margin_bottom = 595.0
+
+[node name="StartBattleButton" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer" index="2"]
+margin_top = 620.0
+margin_bottom = 740.0
+
+[node name="HBoxContainer2" parent="CanvasLayer/IngameUI/VBoxContainer" index="2"]
 margin_bottom = 1150.0
 
 [node name="VBoxContainer" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2" index="0"]
-margin_bottom = 1066.0
+margin_bottom = 1150.0
 
 [node name="LabelRemaining" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="0"]
-margin_top = 425.0
-margin_bottom = 476.0
+margin_top = 467.0
+margin_bottom = 518.0
 
 [node name="Mana" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="1"]
-margin_top = 480.0
-margin_bottom = 531.0
+margin_top = 522.0
+margin_bottom = 573.0
 
 [node name="LabelTotal" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="2"]
-margin_top = 535.0
-margin_bottom = 586.0
+margin_top = 577.0
+margin_bottom = 628.0
 
 [node name="TotalManaUsed" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="3"]
-margin_top = 590.0
-margin_bottom = 641.0
+margin_top = 632.0
+margin_bottom = 683.0
 
+[connection signal="all_standing" from="Grid" to="Cursor" method="_on_Grid_all_standing"]
 [connection signal="can_undo" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_can_undo"]
+[connection signal="failed" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_failed"]
 [connection signal="mana_changed" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_mana_changed"]
 [connection signal="mana_used_changed" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_mana_used_changed"]
+[connection signal="picked" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_picked"]
+[connection signal="succeeded" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_succeeded"]
 [connection signal="button_up" from="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer/RestartButton" to="Cursor" method="_on_RestartButton_button_up"]
 [connection signal="button_up" from="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer/UndoButton" to="Cursor" method="_on_UndoButton_button_up"]
 [connection signal="button_up" from="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer/StartBattleButton" to="Cursor" method="_on_StartBattleButton_button_up"]

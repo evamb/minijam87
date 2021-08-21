@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/FreePixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/IngameUI.gd" type="Script" id=2]
+[ext_resource path="res://fonts/FreePixel.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 66
+outline_size = 2
+outline_color = Color( 0.435294, 0.435294, 0.439216, 1 )
+font_data = ExtResource( 3 )
 
 [node name="IngameUI" type="MarginContainer"]
 anchor_right = 1.0
@@ -15,75 +22,121 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1900.0
-margin_bottom = 80.0
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 1060.0
 custom_constants/separation = 25
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RestartButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 80 )
+margin_left = 60.0
+margin_top = 365.0
+margin_right = 340.0
+margin_bottom = 445.0
+rect_min_size = Vector2( 280, 80 )
+size_flags_horizontal = 6
 custom_fonts/font = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "Restart"
 
 [node name="UndoButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 225.0
-margin_right = 425.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 80 )
+margin_left = 60.0
+margin_top = 470.0
+margin_right = 340.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 280, 80 )
+size_flags_horizontal = 6
 custom_fonts/font = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "Undo"
 
 [node name="StartBattleButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 450.0
-margin_right = 1900.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 80 )
+margin_top = 575.0
+margin_right = 400.0
+margin_bottom = 695.0
+rect_min_size = Vector2( 400, 120 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "Start Battle"
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_left = 404.0
+margin_right = 1521.0
+margin_bottom = 397.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/margin_top = 70
+
+[node name="LabelFail" type="Label" parent="VBoxContainer/MarginContainer"]
+margin_top = 70.0
+margin_right = 1117.0
+margin_bottom = 397.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 1 )
+text = "There's blood on the glade.
+You failed, try again!"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_top = 70.0
+margin_right = 1117.0
+margin_bottom = 397.0
+custom_constants/separation = 70
+
+[node name="LabelSuccess" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 1117.0
+margin_bottom = 137.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 1 )
+text = "Success! They're leaving!
+You've used {mana} moves."
+align = 1
+
+[node name="ProceedButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+margin_left = 358.0
+margin_top = 207.0
+margin_right = 758.0
+margin_bottom = 327.0
+rect_min_size = Vector2( 400, 120 )
+size_flags_horizontal = 6
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 1 )
+text = "Proceed"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 84.0
+margin_left = 1525.0
 margin_right = 1900.0
 margin_bottom = 1060.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 1525.0
-margin_right = 1900.0
-margin_bottom = 976.0
+margin_right = 375.0
+margin_bottom = 1060.0
 alignment = 1
 
 [node name="LabelRemaining" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 380.0
+margin_top = 422.0
 margin_right = 375.0
-margin_bottom = 431.0
+margin_bottom = 473.0
 custom_fonts/font = ExtResource( 1 )
 text = "Remaining moves"
 align = 2
 valign = 1
 
 [node name="Mana" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 435.0
+margin_top = 477.0
 margin_right = 375.0
-margin_bottom = 486.0
+margin_bottom = 528.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "10"
@@ -91,23 +144,26 @@ align = 2
 valign = 1
 
 [node name="LabelTotal" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 490.0
+margin_top = 532.0
 margin_right = 375.0
-margin_bottom = 541.0
+margin_bottom = 583.0
 custom_fonts/font = ExtResource( 1 )
 text = "Total moves"
 align = 2
 valign = 1
 
 [node name="TotalManaUsed" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 545.0
+margin_top = 587.0
 margin_right = 375.0
-margin_bottom = 596.0
+margin_bottom = 638.0
 custom_fonts/font = ExtResource( 1 )
 text = "50"
 align = 2
 valign = 1
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/UndoButton" to="." method="_on_UndoButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/StartBattleButton" to="." method="_on_StartBattleButton_button_up"]
+[connection signal="button_up" from="VBoxContainer/MarginContainer/VBoxContainer/ProceedButton" to="." method="_on_ProceedButton_button_up"]

@@ -3,6 +3,9 @@ extends Area2D
 signal can_undo
 signal mana_changed
 signal mana_used_changed
+signal failed
+signal succeeded
+signal picked
 
 export(int) var level = 0
 
@@ -12,6 +15,7 @@ var _picked_occupant: CellObject
 var _undo_stack: Array
 var _mana = 10
 var _used_mana = 0
+var _soldier_got_hit = false
 
 
 func _ready() -> void:
@@ -21,6 +25,7 @@ func _ready() -> void:
 	connect("area_exited", self, "_area_exited")
 	yield(get_tree(), "idle_frame")
 	emit_signal("mana_changed", _mana)
+	monitoring = false
 
 
 func _process(_delta: float) -> void:
@@ -87,6 +92,9 @@ func _drop_occupant() -> void:
 
 
 func _pick_occupant() -> void:
+	Globals.set_used_mana(level, 0)
+	emit_signal("picked")
+	_reset_grid_cell_alpha()
 	_latest_area.set_droppable_on_cursor(true)
 	_dragged_area = _latest_area
 	_picked_occupant = _dragged_area.pick_occupant()
@@ -137,6 +145,22 @@ func _on_RestartButton_button_up() -> void:
 
 
 func _on_StartBattleButton_button_up() -> void:
-	for soldier in get_tree().get_nodes_in_group("soldiers"):
+	_soldier_got_hit = false
+	var soldiers = get_tree().get_nodes_in_group("soldiers")
+	for soldier in soldiers:
+		soldier.connect("got_hit", self, "_on_Soldier_got_hit")
+	for soldier in soldiers:
 		soldier.execute_attack()
 	Globals.set_used_mana(level, _used_mana)
+	if _soldier_got_hit:
+		emit_signal("failed")
+	else:
+		emit_signal("succeeded")
+
+
+func _on_Soldier_got_hit() -> void:
+	_soldier_got_hit = true
+
+
+func _on_Grid_all_standing() -> void:
+	monitoring = true

@@ -2,7 +2,17 @@ tool
 extends CellObject
 class_name Soldier
 
+signal got_hit
+
 export(Array, Vector2) var target_cells
+
+
+func spawn() -> void:
+	_tween.interpolate_property(self, "position",
+			position + Vector2.LEFT * 1000 * _direction, position, rand_range(4.0, 5.0), Tween.TRANS_CUBIC)
+	_tween.start()
+	yield(_tween, "tween_all_completed")
+	print("spawn completed!")
 
 
 func _ready() -> void:
@@ -26,7 +36,7 @@ func execute_attack() -> void:
 
 
 func hit(hit_info: HitInfo) -> bool:
-	print("%s says ouch" % name)
+	emit_signal("got_hit")
 	if "Crossbow" in hit_info.get_source().name:
 		return false
 	return true

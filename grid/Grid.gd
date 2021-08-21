@@ -1,7 +1,10 @@
 tool
 extends Node2D
 
+signal all_standing
+
 var _level: Dictionary = {}
+var _waiting_fns = 0
 
 export(int) var width;
 export(int) var height;
@@ -40,6 +43,8 @@ func _build_grid() -> void:
 	var rest_height = height % 2
 	var width_offset = floor(half_width)
 	var height_offset = floor(half_height)
+	_waiting_fns = 0
+	var awaited_fns = Array();
 	for x in range(-width_offset, ceil(half_width)):
 		for y in range(-height_offset, ceil(half_height)):
 			var coords = Vector2(x, y)
@@ -53,7 +58,15 @@ func _build_grid() -> void:
 			cell.set_owner(get_tree().get_edited_scene_root())
 			var pos = Vector2(x + width_offset, y + height_offset)
 			if level_coordinates.has(pos):
-				cell.create_occupant(level_coordinates[pos])
-				
+				_waiting_fns += 1
+				awaited_fns.push_back(cell.create_occupant(level_coordinates[pos]))
+	for fn in awaited_fns:
+		_await_fn(fn)
 
 
+func _await_fn(fn_state: GDScriptFunctionState) -> void:
+	if fn_state.is_valid():
+		yield(fn_state, "completed")
+	_waiting_fns -= 1
+	if _waiting_fns == 0:
+		emit_signal("all_standing")
