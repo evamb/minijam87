@@ -21,16 +21,14 @@ func _ready() -> void:
 
 func set_occupant(cell_object: CellObject) -> void:
 	_occupant = cell_object
-	print("set occupant can be moved? %s" % (cell_object.can_be_moved))
 	if cell_object != null:
-		cell_object.global_position = global_position
+		cell_object.set_target(global_position)
 
 
 func create_occupant(occupant: String) -> void:
 	var cell_object = cell_object_map[occupant].instance()
 	get_parent().add_child(cell_object)
 	cell_object.set_owner(get_tree().get_edited_scene_root())
-	cell_object.global_position = global_position
 	set_occupant(cell_object)
 
 
@@ -46,7 +44,6 @@ func set_size(size: int) -> void:
 
 
 func set_highlighted(highlighted: bool) -> void:
-	print("setting highlighted %s, occupant can be moved? %s" % [highlighted, _occupant != null and _occupant.can_be_moved])
 	if highlighted and _occupant != null and _occupant.can_be_moved:
 		modulate = Color.blue
 	else:
