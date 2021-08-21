@@ -342,6 +342,8 @@ scale = Vector2( 1.375, 1.375 )
 margin_bottom = 90.0
 
 [connection signal="can_undo" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_can_undo"]
-[connection signal="button_up" from="CanvasLayer/IngameUI/UndoButton" to="Cursor" method="_on_UndoButton_button_up"]
+[connection signal="mana_changed" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_mana_changed"]
+[connection signal="button_up" from="CanvasLayer/IngameUI/HBoxContainer/RestartButton" to="Cursor" method="_on_RestartButton_button_up"]
+[connection signal="button_up" from="CanvasLayer/IngameUI/HBoxContainer/UndoButton" to="Cursor" method="_on_UndoButton_button_up"]
 
 [editable path="CanvasLayer/IngameUI"]

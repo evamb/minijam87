@@ -1,11 +1,13 @@
 extends Area2D
 
 signal can_undo
+signal mana_changed
 
 var _latest_area: GridCell
 var _dragged_area: GridCell
 var _picked_occupant: CellObject
 var _undo_stack: Array
+var _mana = 10
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
@@ -29,24 +31,40 @@ func _process(_delta: float) -> void:
 		_picked_occupant.set_target(global_position, false)
 
 
+func _notify_mana(mana: int) -> void:
+	emit_signal("mana_changed", mana)
+
+
 func _undo() -> void:
 	var fromTo = _undo_stack.pop_back()
 	if fromTo:
 		var occupant = fromTo[1].pick_occupant()
 		fromTo[0].set_occupant(occupant)
+		_mana += _get_mana_cost(fromTo[0], fromTo[1])
+		_notify_mana(_mana)
 	
 	if _undo_stack.size() == 0:
 		emit_signal("can_undo", false)
 
 
+func _get_mana_cost(a: GridCell, b: GridCell) -> int:
+	return int(a.get_cell_pos().distance_to(b.get_cell_pos()))
+
+
 func _drop_occupant() -> void:
+	var cost = 0
+	if _dragged_area and _latest_area:
+		cost = _get_mana_cost(_dragged_area, _latest_area)
 	if not _latest_area\
-		or _latest_area.occupant_blocks_drop():
+		or _latest_area.occupant_blocks_drop()\
+		or cost > _mana:
 		_dragged_area.set_occupant(_picked_occupant)
 	else:
 		_latest_area.set_occupant(_picked_occupant)
 		_undo_stack.append([_dragged_area, _latest_area])
+		_mana -= cost
 		emit_signal("can_undo", true)
+	_notify_mana(_mana)
 	if _latest_area:
 		_latest_area.set_droppable_on_cursor(false)
 	_picked_occupant.z_index -= 1000
@@ -69,6 +87,10 @@ func _area_entered(area: Area2D) -> void:
 	if area is GridCell:
 		area.set_hovering(true)
 		area.set_droppable_on_cursor(_dragged_area != null)
+		if _dragged_area:
+			var mana_result = _mana - _get_mana_cost(area, _dragged_area)
+			area.set_exceeds_mana(mana_result < 0)
+			_notify_mana(mana_result)
 		_latest_area = area
 
 
@@ -83,3 +105,9 @@ func _area_exited(area: Area2D) -> void:
 func _on_UndoButton_button_up() -> void:
 	if not _dragged_area:
 		_undo()
+
+
+func _on_RestartButton_button_up() -> void:
+	while _undo_stack.size() > 0:
+		_undo()
+		yield(get_tree().create_timer(0.1), "timeout")

@@ -15,12 +15,13 @@ const CAN_DROP_COLOR = Color.green
 const EMPTY_COLOR = Color.white
 
 var _occupant: CellObject = null setget set_occupant
-var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos
+var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos, get_cell_pos
 var _state = States.NONE
 var _hit_marks_enabled = false setget set_hit_mark_enabled
 var _droppable_on_cursor = false setget set_droppable_on_cursor
 var _hovering = false setget set_hovering
 var _on_enemy_side = false setget set_on_enemy_side
+var _exceeds_mana = false setget set_exceeds_mana
 var _look_through = false setget set_look_through
 
 onready var Obstacle = preload("res://cell_object/Obstacle.tscn")
@@ -35,6 +36,11 @@ onready var cell_object_map = {
 
 func _ready() -> void:
 	pass
+
+
+func set_exceeds_mana(enabled: bool) -> void:
+	_exceeds_mana = enabled
+	_update_modulate()
 
 
 func set_look_through(enabled: bool) -> void:
@@ -71,6 +77,10 @@ func set_hit_mark_enabled(enabled: bool) -> void:
 
 func set_cell_pos(cell_pos: Vector2) -> void:
 	_cell_pos = cell_pos
+
+
+func get_cell_pos() -> Vector2:
+	return _cell_pos
 
 
 func set_occupant(cell_object: CellObject) -> void:
@@ -121,7 +131,8 @@ func hit(hit_info: HitInfo) -> bool:
 
 
 func _update_modulate() -> void:
-	match [_hit_marks_enabled, _droppable_on_cursor, _hovering, _on_enemy_side or occupant_blocks_drop()]:
+	var drop_forbidden = _exceeds_mana or _on_enemy_side or occupant_blocks_drop()
+	match [_hit_marks_enabled, _droppable_on_cursor, _hovering, drop_forbidden]:
 		[true, _, _, _]: modulate = HIT_MARK_COLOR
 		[false, false, true, _]:
 			if occupant_can_be_moved():

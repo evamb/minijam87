@@ -3,21 +3,53 @@
 [ext_resource path="res://fonts/FreePixelFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/IngameUI.gd" type="Script" id=2]
 
-[node name="IngameUI" type="HBoxContainer"]
+[node name="IngameUI" type="MarginContainer"]
 anchor_right = 1.0
-margin_top = 10.0
-margin_bottom = 30.0
-alignment = 1
+margin_bottom = 80.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UndoButton" type="Button" parent="."]
-margin_left = 860.0
-margin_right = 1060.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1910.0
+margin_bottom = 90.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 1 )
+shortcut_in_tooltip = false
+text = "Restart"
+
+[node name="UndoButton" type="Button" parent="HBoxContainer"]
+margin_left = 225.0
+margin_right = 425.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 80 )
 custom_fonts/font = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "Undo"
+
+[node name="Mana" type="Label" parent="HBoxContainer"]
+margin_left = 450.0
+margin_top = 14.0
+margin_right = 1900.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+align = 2
+valign = 1
