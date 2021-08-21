@@ -2,6 +2,7 @@ extends MarginContainer
 
 onready var _undo_button = $HBoxContainer/UndoButton
 onready var _restart_button = $HBoxContainer/RestartButton
+onready var _start_battle_button = $HBoxContainer/StartBattleButton
 onready var _mana_label = $HBoxContainer/Mana
 
 
@@ -17,3 +18,17 @@ func _on_Cursor_can_undo(enabled: bool) -> void:
 
 func _on_Cursor_mana_changed(mana: int) -> void:
 	_mana_label.text = str(mana)
+
+
+func _on_StartBattleButton_button_up() -> void:
+	_start_battle_button.disabled = true
+	_restart_button.disabled = false
+
+
+func _on_RestartButton_button_up() -> void:
+	_start_battle_button.disabled = false
+	_restart_button.disabled = true
+
+
+func _on_UndoButton_button_up() -> void:
+	_start_battle_button.disabled = false

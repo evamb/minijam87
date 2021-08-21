@@ -43,8 +43,18 @@ custom_fonts/font = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "Undo"
 
-[node name="Mana" type="Label" parent="HBoxContainer"]
+[node name="StartBattleButton" type="Button" parent="HBoxContainer"]
 margin_left = 450.0
+margin_right = 1162.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 80 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+shortcut_in_tooltip = false
+text = "Start Battle"
+
+[node name="Mana" type="Label" parent="HBoxContainer"]
+margin_left = 1187.0
 margin_top = 14.0
 margin_right = 1900.0
 margin_bottom = 65.0
@@ -53,3 +63,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "10"
 align = 2
 valign = 1
+
+[connection signal="button_up" from="HBoxContainer/RestartButton" to="." method="_on_RestartButton_button_up"]
+[connection signal="button_up" from="HBoxContainer/UndoButton" to="." method="_on_UndoButton_button_up"]
+[connection signal="button_up" from="HBoxContainer/StartBattleButton" to="." method="_on_StartBattleButton_button_up"]

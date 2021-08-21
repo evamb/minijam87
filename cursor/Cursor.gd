@@ -36,6 +36,7 @@ func _notify_mana(mana: int) -> void:
 
 
 func _undo() -> void:
+	_reset_grid_cell_alpha()
 	var fromTo = _undo_stack.pop_back()
 	if fromTo:
 		var occupant = fromTo[1].pick_occupant()
@@ -102,12 +103,24 @@ func _area_exited(area: Area2D) -> void:
 			_latest_area = null
 
 
+func _reset_grid_cell_alpha() -> void:
+	for grid_cell in get_tree().get_nodes_in_group("grid_cell"):
+		grid_cell.modulate.a = 0
+
+
 func _on_UndoButton_button_up() -> void:
 	if not _dragged_area:
 		_undo()
+		_reset_grid_cell_alpha()
 
 
 func _on_RestartButton_button_up() -> void:
 	while _undo_stack.size() > 0:
 		_undo()
 		yield(get_tree().create_timer(0.1), "timeout")
+	_reset_grid_cell_alpha()
+
+
+func _on_StartBattleButton_button_down() -> void:
+	for soldier in get_tree().get_nodes_in_group("soldiers"):
+		soldier.execute_attack()

@@ -15,6 +15,7 @@ width = 64
 [node name="GridCell" type="Area2D" groups=[
 "grid_cell",
 ]]
+modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
