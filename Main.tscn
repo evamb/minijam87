@@ -32,77 +32,62 @@ Vector2( 9, 2 ): "bow"
 }
 
 [node name="GridCell" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -495, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell2" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -495, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell3" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -495, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell4" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -495, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell5" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -495, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell6" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -495, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell7" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -405, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell8" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -405, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell9" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -405, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell10" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -405, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell11" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -405, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell12" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -405, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell13" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -315, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell14" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -315, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell15" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -315, -45 )
 scale = Vector2( 1.375, 1.375 )
 
@@ -110,7 +95,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -315, -45 )
 
 [node name="GridCell16" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -315, 45 )
 scale = Vector2( 1.375, 1.375 )
 
@@ -119,67 +103,54 @@ position = Vector2( -315, 45 )
 z_index = 1
 
 [node name="GridCell17" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -315, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell18" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -315, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell19" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -225, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell20" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -225, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell21" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -225, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell22" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -225, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell23" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -225, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell24" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -225, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell25" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -135, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell26" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -135, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell27" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -135, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell28" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -135, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell29" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -135, 135 )
 scale = Vector2( 1.375, 1.375 )
 
@@ -187,87 +158,70 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -135, 135 )
 
 [node name="GridCell30" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -135, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell31" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -45, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell32" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -45, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell33" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -45, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell34" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -45, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell35" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -45, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell36" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -45, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell37" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 45, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell38" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 45, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell39" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 45, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell40" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 45, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell41" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 45, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell42" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 45, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell43" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 135, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell44" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 135, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell45" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 135, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell46" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 135, 45 )
 scale = Vector2( 1.375, 1.375 )
 
@@ -276,57 +230,46 @@ position = Vector2( 135, 45 )
 z_index = 1
 
 [node name="GridCell47" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 135, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell48" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 135, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell49" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 225, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell50" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 225, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell51" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 225, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell52" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 225, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell53" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 225, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell54" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 225, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell55" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 315, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell56" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 315, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell57" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 315, -45 )
 scale = Vector2( 1.375, 1.375 )
 
@@ -335,77 +278,62 @@ position = Vector2( 315, -45 )
 z_index = 1
 
 [node name="GridCell58" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 315, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell59" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 315, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell60" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 315, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell61" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 405, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell62" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 405, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell63" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 405, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell64" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 405, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell65" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 405, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell66" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 405, 225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell67" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 495, -225 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell68" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 495, -135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell69" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 495, -45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell70" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 495, 45 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell71" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 495, 135 )
 scale = Vector2( 1.375, 1.375 )
 
 [node name="GridCell72" parent="Grid" instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 495, 225 )
 scale = Vector2( 1.375, 1.375 )
 
@@ -416,10 +344,36 @@ scale = Vector2( 1.375, 1.375 )
 [node name="IngameUI" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_bottom = 90.0
 
+[node name="VBoxContainer" parent="CanvasLayer/IngameUI" index="0"]
+margin_bottom = 1160.0
+
+[node name="HBoxContainer2" parent="CanvasLayer/IngameUI/VBoxContainer" index="1"]
+margin_bottom = 1150.0
+
+[node name="VBoxContainer" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2" index="0"]
+margin_bottom = 1066.0
+
+[node name="LabelRemaining" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="0"]
+margin_top = 425.0
+margin_bottom = 476.0
+
+[node name="Mana" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="1"]
+margin_top = 480.0
+margin_bottom = 531.0
+
+[node name="LabelTotal" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="2"]
+margin_top = 535.0
+margin_bottom = 586.0
+
+[node name="TotalManaUsed" parent="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer2/VBoxContainer" index="3"]
+margin_top = 590.0
+margin_bottom = 641.0
+
 [connection signal="can_undo" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_can_undo"]
 [connection signal="mana_changed" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_mana_changed"]
-[connection signal="button_up" from="CanvasLayer/IngameUI/HBoxContainer/RestartButton" to="Cursor" method="_on_RestartButton_button_up"]
-[connection signal="button_up" from="CanvasLayer/IngameUI/HBoxContainer/UndoButton" to="Cursor" method="_on_UndoButton_button_up"]
-[connection signal="button_down" from="CanvasLayer/IngameUI/HBoxContainer/StartBattleButton" to="Cursor" method="_on_StartBattleButton_button_down"]
+[connection signal="mana_used_changed" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_mana_used_changed"]
+[connection signal="button_up" from="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer/RestartButton" to="Cursor" method="_on_RestartButton_button_up"]
+[connection signal="button_up" from="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer/UndoButton" to="Cursor" method="_on_UndoButton_button_up"]
+[connection signal="button_up" from="CanvasLayer/IngameUI/VBoxContainer/HBoxContainer/StartBattleButton" to="Cursor" method="_on_StartBattleButton_button_up"]
 
 [editable path="CanvasLayer/IngameUI"]

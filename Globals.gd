@@ -1,5 +1,18 @@
 extends Node
 
+var _used_mana = {}
+
+
+func set_used_mana(level: int, mana: int) -> void:
+	_used_mana[level] = mana
+
+
+func get_used_mana() -> int:
+	var sum = 0
+	for mana in _used_mana.values():
+		sum += mana
+	return sum
+
 
 func calc_hit_cells(start_cell_pos: Vector2, target_cells: Array, direction: int) -> Array:
 	var cells = Array()

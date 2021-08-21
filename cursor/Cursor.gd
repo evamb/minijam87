@@ -2,18 +2,25 @@ extends Area2D
 
 signal can_undo
 signal mana_changed
+signal mana_used_changed
+
+export(int) var level = 0
 
 var _latest_area: GridCell
 var _dragged_area: GridCell
 var _picked_occupant: CellObject
 var _undo_stack: Array
 var _mana = 10
+var _used_mana = 0
+
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	connect("area_entered", self, "_area_entered")
 # warning-ignore:return_value_discarded
 	connect("area_exited", self, "_area_exited")
+	yield(get_tree(), "idle_frame")
+	emit_signal("mana_changed", _mana)
 
 
 func _process(_delta: float) -> void:
@@ -35,13 +42,19 @@ func _notify_mana(mana: int) -> void:
 	emit_signal("mana_changed", mana)
 
 
+func _change_mana(delta: int) -> void:
+	_mana += delta
+	_used_mana -= delta
+	emit_signal("mana_used_changed", _used_mana)
+
+
 func _undo() -> void:
 	_reset_grid_cell_alpha()
 	var fromTo = _undo_stack.pop_back()
 	if fromTo:
 		var occupant = fromTo[1].pick_occupant()
 		fromTo[0].set_occupant(occupant)
-		_mana += _get_mana_cost(fromTo[0], fromTo[1])
+		_change_mana(_get_mana_cost(fromTo[0], fromTo[1]))
 		_notify_mana(_mana)
 	
 	if _undo_stack.size() == 0:
@@ -63,7 +76,7 @@ func _drop_occupant() -> void:
 	else:
 		_latest_area.set_occupant(_picked_occupant)
 		_undo_stack.append([_dragged_area, _latest_area])
-		_mana -= cost
+		_change_mana(-cost)
 		emit_signal("can_undo", true)
 	_notify_mana(_mana)
 	if _latest_area:
@@ -115,12 +128,15 @@ func _on_UndoButton_button_up() -> void:
 
 
 func _on_RestartButton_button_up() -> void:
+	Globals.set_used_mana(level, 0)
 	while _undo_stack.size() > 0:
 		_undo()
 		yield(get_tree().create_timer(0.1), "timeout")
 	_reset_grid_cell_alpha()
+	emit_signal("can_undo", false)
 
 
-func _on_StartBattleButton_button_down() -> void:
+func _on_StartBattleButton_button_up() -> void:
 	for soldier in get_tree().get_nodes_in_group("soldiers"):
 		soldier.execute_attack()
+	Globals.set_used_mana(level, _used_mana)
