@@ -6,9 +6,8 @@ export(Array, Vector2) var target_cells
 
 
 func _ready() -> void:
-	pass
-	#if Engine.editor_hint:
-#		set_process(false)
+	if Engine.editor_hint:
+		set_process(false)
 
 
 func _process(_delta: float) -> void:

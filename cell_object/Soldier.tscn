@@ -7,6 +7,8 @@
 script = ExtResource( 2 )
 can_be_moved = true
 blocks_drop = true
+target_cells = Object(Sprite,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"visible":true,"modulate":Color( 1, 1, 1, 1 ),"self_modulate":Color( 1, 1, 1, 1 ),"show_behind_parent":false,"light_mask":1,"material":null,"use_parent_material":false,"position":Vector2( 0, -64 ),"rotation":0.0,"scale":Vector2( 6, 6 ),"z_index":0,"z_as_relative":true,"texture":Resource( "res://icon.png" ),"normal_map":null,"centered":true,"offset":Vector2( 0, 0 ),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2( 0, 0, 0, 0 ),"region_filter_clip":false,"script":null)
+
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -64 )
