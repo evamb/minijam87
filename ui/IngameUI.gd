@@ -79,6 +79,7 @@ func _on_Cursor_picked() -> void:
 
 
 func _on_Cursor_succeeded() -> void:
+	_success_label.text = _success_message.replace("{mana}", str(Globals.get_used_mana()))
 	_fade_success(true)
 
 
