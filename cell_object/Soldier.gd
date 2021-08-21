@@ -7,6 +7,8 @@ export(Array, Vector2) var target_cells
 
 func _ready() -> void:
 	pass
+	#if Engine.editor_hint:
+#		set_process(false)
 
 
 func _process(_delta: float) -> void:
@@ -15,23 +17,21 @@ func _process(_delta: float) -> void:
 
 
 func get_hit_cells() -> Array:
-	var cells = Array()
-	for cell_pos in target_cells:
-		var pos = Vector2(cell_pos.x * _direction, cell_pos.y) + _cell_pos
-		for cell in get_tree().get_nodes_in_group("grid_cell"):
-			if cell._cell_pos == pos:
-				cells.append(cell)
-	return cells
+	return Globals.calc_hit_cells(_cell_pos, target_cells, _direction)
 
 
 func execute_attack() -> void:
 	for cell in get_hit_cells():
-		if not cell.hit(self):
+		if not cell.hit(HitInfo.new(self, _direction)):
 			return
 
 
-func hit(source: CellObject) -> bool:
+func hit(hit_info: HitInfo) -> bool:
 	print("%s says ouch" % name)
-	if "Crossbow" in source.name:
+	if "Crossbow" in hit_info.get_source().name:
 		return false
+	return true
+
+
+func weapon_hit_obstacle(_obstacle: Obstacle, _hit_info: HitInfo) -> bool:
 	return true

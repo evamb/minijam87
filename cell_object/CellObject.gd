@@ -3,13 +3,16 @@ extends Node2D
 class_name CellObject
 
 var _direction: int = 1 setget set_direction
-var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos
+var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos, get_cell_pos
 
 export(bool) var can_be_moved
 export(bool) var blocks_drop
 export(bool) var is_large
 
 onready var _tween = $Tween
+
+func get_cell_pos() -> Vector2:
+	return _cell_pos
 
 
 func set_cell_pos(cell_pos: Vector2) -> void:
@@ -28,7 +31,7 @@ func set_target(pos: Vector2, do_tween = true) -> void:
 		global_position = pos
 
 
-func hit(_source: CellObject) -> bool:
+func hit(_hit_info: HitInfo) -> bool:
 	# returns true if hit should continue moving
 	return true
 

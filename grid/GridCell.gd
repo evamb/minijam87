@@ -66,7 +66,6 @@ func set_droppable_on_cursor(enabled: bool) -> void:
 
 func set_hit_mark_enabled(enabled: bool) -> void:
 	_hit_marks_enabled = enabled
-	print("hit mark set to %s" % _hit_marks_enabled)
 	_update_modulate()
 
 
@@ -115,10 +114,10 @@ func occupant_blocks_drop() -> bool:
 	return _on_enemy_side or _occupant != null and _occupant.blocks_drop
 
 
-func hit(source: CellObject) -> bool:
+func hit(hit_info: HitInfo) -> bool:
 	modulate = Color.red
 	# returns true if hit should continue moving
-	return not _occupant or _occupant.hit(source)
+	return not _occupant or _occupant.hit(hit_info)
 
 
 func _update_modulate() -> void:
@@ -136,7 +135,7 @@ func _update_modulate() -> void:
 			modulate = DROP_BLOCKED_COLOR
 		_: modulate = EMPTY_COLOR
 	if _occupant and _occupant.is_large:
-		_occupant.modulate.a = 0.3 if _look_through else 1
+		_occupant.modulate.a = 0.3 if _look_through else 1.0
 
 
 func _show_occupant_hit_marks(enabled: bool) -> void:
