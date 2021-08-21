@@ -2,8 +2,25 @@ tool
 extends Area2D
 class_name GridCell
 
+enum States {
+	NONE = 0,
+	HOVERED = 1,
+	HOVERED_WITH_CELL_OBJECT = 2,
+}
+
+const HIT_MARK_COLOR = Color.red
+const DROP_BLOCKED_COLOR = Color.red
+const CAN_PICK_COLOR = Color.blue
+const CAN_DROP_COLOR = Color.green
+const EMPTY_COLOR = Color.white
+
 var _occupant: CellObject = null setget set_occupant
 var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos
+var _state = States.NONE
+var _hit_marks_enabled = false setget set_hit_mark_enabled
+var _droppable_on_cursor = false setget set_droppable_on_cursor
+var _hovering = false setget set_hovering
+var _on_enemy_side = false setget set_on_enemy_side
 
 onready var Obstacle = preload("res://cell_object/Obstacle.tscn")
 onready var cell_object_map = {
@@ -17,6 +34,31 @@ onready var cell_object_map = {
 
 func _ready() -> void:
 	pass
+
+
+func set_on_enemy_side(enabled: bool) -> void:
+	_on_enemy_side = enabled
+	_update_modulate()
+
+
+func set_hovering(enabled: bool) -> void:
+	_hovering = enabled
+	if not enabled:
+		_show_occupant_hit_marks(false)
+	_update_modulate()
+
+
+func set_droppable_on_cursor(enabled: bool) -> void:
+	_droppable_on_cursor = enabled
+	if enabled:
+		_show_occupant_hit_marks(false)
+	_update_modulate()
+
+
+func set_hit_mark_enabled(enabled: bool) -> void:
+	_hit_marks_enabled = enabled
+	print("hit mark set to %s" % _hit_marks_enabled)
+	_update_modulate()
 
 
 func set_cell_pos(cell_pos: Vector2) -> void:
@@ -49,11 +91,11 @@ func set_size(size: int) -> void:
 	scale = Vector2.ONE * size / 64.0 
 
 
-func set_highlighted(highlighted: bool) -> void:
-	if highlighted and _occupant != null and _occupant.can_be_moved:
-		modulate = Color.blue
+func get_hit_cells() -> Array:
+	if _occupant and _occupant.has_method("get_hit_cells"):
+		return _occupant.get_hit_cells()
 	else:
-		modulate = Color.white
+		return Array()
 
 
 func occupant_can_be_moved() -> bool:
@@ -61,10 +103,31 @@ func occupant_can_be_moved() -> bool:
 	
 
 func occupant_blocks_drop() -> bool:
-	return _occupant != null and _occupant.blocks_drop
+	return _on_enemy_side or _occupant != null and _occupant.blocks_drop
 
 
 func hit(source: CellObject) -> bool:
 	modulate = Color.red
 	# returns true if hit should continue moving
 	return not _occupant or _occupant.hit(source)
+
+
+func _update_modulate() -> void:
+	match [_hit_marks_enabled, _droppable_on_cursor, _hovering, _on_enemy_side or occupant_blocks_drop()]:
+		[true, _, _, _]: modulate = HIT_MARK_COLOR
+		[false, false, true, _]:
+			if occupant_can_be_moved():
+				modulate = CAN_PICK_COLOR
+				_show_occupant_hit_marks(true)
+			else:
+				modulate = EMPTY_COLOR
+		[false, true, true, false]:
+			modulate = CAN_DROP_COLOR
+		[false, true, true, true]:
+			modulate = DROP_BLOCKED_COLOR
+		_: modulate = EMPTY_COLOR
+
+
+func _show_occupant_hit_marks(enabled: bool) -> void:
+	for cell in get_hit_cells():
+		cell.set_hit_mark_enabled(enabled)

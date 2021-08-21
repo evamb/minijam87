@@ -14,13 +14,20 @@ func _process(_delta: float) -> void:
 		execute_attack()
 
 
-func execute_attack() -> void:
+func get_hit_cells() -> Array:
+	var cells = Array()
 	for cell_pos in target_cells:
 		var pos = Vector2(cell_pos.x * _direction, cell_pos.y) + _cell_pos
 		for cell in get_tree().get_nodes_in_group("grid_cell"):
 			if cell._cell_pos == pos:
-				if not cell.hit(self):
-					return
+				cells.append(cell)
+	return cells
+
+
+func execute_attack() -> void:
+	for cell in get_hit_cells():
+		if not cell.hit(self):
+			return
 
 
 func hit(source: CellObject) -> bool:
