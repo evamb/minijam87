@@ -6,6 +6,7 @@ signal mana_used_changed
 signal failed
 signal succeeded
 signal picked
+signal dropped
 
 export(int) var level = 0
 
@@ -89,6 +90,7 @@ func _drop_occupant() -> void:
 	_picked_occupant.z_index -= 1000
 	_picked_occupant = null
 	_dragged_area = null
+	emit_signal("dropped")
 
 
 func _pick_occupant() -> void:
