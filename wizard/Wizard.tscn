@@ -1,12 +1,13 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://wizard/wizard_body.png" type="Texture" id=1]
-[ext_resource path="res://wizard/arms_magic_start.png" type="Texture" id=2]
+[ext_resource path="res://wizard/arms_magic_stop_time.png" type="Texture" id=2]
 [ext_resource path="res://wizard/wizard_magic_start.tres" type="Animation" id=3]
 [ext_resource path="res://wizard/wizard_magic_loop.tres" type="Animation" id=4]
 [ext_resource path="res://wizard/wizard_magic_end.tres" type="Animation" id=5]
 [ext_resource path="res://wizard/wizard_idle.tres" type="Animation" id=6]
 [ext_resource path="res://wizard/Wizard.gd" type="Script" id=7]
+[ext_resource path="res://wizard/wizrad_magic_stop_time.tres" type="Animation" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -44,6 +45,9 @@ animation = "magic_loop"
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "magic_start"
 
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "magic_stop_time"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
@@ -56,6 +60,12 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/idle/node = SubResource( 6 )
 states/idle/position = Vector2( 106, 99 )
@@ -65,7 +75,9 @@ states/magic_loop/node = SubResource( 8 )
 states/magic_loop/position = Vector2( 506.5, 87 )
 states/magic_start/node = SubResource( 9 )
 states/magic_start/position = Vector2( 291, 46.5 )
-transitions = [ "idle", "magic_start", SubResource( 10 ), "magic_start", "magic_loop", SubResource( 11 ), "magic_loop", "magic_end", SubResource( 12 ), "magic_end", "idle", SubResource( 13 ) ]
+states/magic_stop_time/node = SubResource( 16 )
+states/magic_stop_time/position = Vector2( 116, 254 )
+transitions = [ "idle", "magic_start", SubResource( 10 ), "magic_start", "magic_loop", SubResource( 11 ), "magic_loop", "magic_end", SubResource( 12 ), "magic_end", "idle", SubResource( 13 ), "idle", "magic_stop_time", SubResource( 17 ), "magic_stop_time", "idle", SubResource( 18 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
@@ -77,12 +89,14 @@ script = ExtResource( 7 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 2 )
 hframes = 4
+vframes = 3
+frame = 10
 
 [node name="Body" type="AnimatedSprite" parent="."]
 scale = Vector2( 6, 6 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="ArmsAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -90,6 +104,7 @@ anims/idle = ExtResource( 6 )
 anims/magic_end = ExtResource( 5 )
 anims/magic_loop = ExtResource( 4 )
 anims/magic_start = ExtResource( 3 )
+anims/magic_stop_time = ExtResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 14 )

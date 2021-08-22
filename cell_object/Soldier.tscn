@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://cell_object/CellObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cell_object/Soldier.gd" type="Script" id=2]
+[ext_resource path="res://cell_object/soldiers/magic_move.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 32 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "magic",
+"speed": 6.66
+} ]
 
 [node name="Soldier" groups=[
 "soldiers",
@@ -12,6 +37,14 @@ blocks_drop = true
 target_cells = Object(Sprite,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"visible":true,"modulate":Color( 1, 1, 1, 1 ),"self_modulate":Color( 1, 1, 1, 1 ),"show_behind_parent":false,"light_mask":1,"material":null,"use_parent_material":false,"position":Vector2( 0, -64 ),"rotation":0.0,"scale":Vector2( 6, 6 ),"z_index":0,"z_as_relative":true,"texture":Resource( "res://icon.png" ),"normal_map":null,"centered":true,"offset":Vector2( 0, 0 ),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2( 0, 0, 0, 0 ),"region_filter_clip":false,"script":null)
 
 
-[node name="Sprite" parent="." index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+visible = false
+position = Vector2( 0, -40 )
+scale = Vector2( 6, 6 )
+frames = SubResource( 5 )
+animation = "magic"
+playing = true
+
+[node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -64 )
 scale = Vector2( 6, 6 )
