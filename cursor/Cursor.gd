@@ -84,9 +84,11 @@ func _drop_occupant() -> void:
 		_dragged_area.set_occupant(_picked_occupant)
 	else:
 		_latest_area.set_occupant(_picked_occupant)
-		_undo_stack.append([_dragged_area, _latest_area])
+		print("instance ids: %s, %s" % [_dragged_area.get_instance_id(), _latest_area.get_instance_id()])
+		if _dragged_area != _latest_area:
+			_undo_stack.append([_dragged_area, _latest_area])
+			emit_signal("can_undo", true)
 		_change_mana(-cost)
-		emit_signal("can_undo", true)
 	_notify_mana(_mana)
 	if _latest_area:
 		_latest_area.set_droppable_on_cursor(false)
