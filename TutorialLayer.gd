@@ -6,10 +6,15 @@ signal soldier_hovered
 const dialog = [
 	"The glade, beautiful as always. But what's this? Someone's coming! (click to proceed)",
 	"FREEZE!",
-	"You won't defile this place with your blood.",
-	"Maybe they leave if I prevent them from hurting each other...",
+	"You won't defile this place with your blood!",
+	"I won't let them kill each other. Maybe I can prevent this battle...",
 	"Move your mouse on top of a soldier to see where they will attack!",
-	"Hold your left mouse button to move soldiers. Make sure they don't kill anybody. The red areas tell you where they'll deal damage.",
+	"%s %s %s %s" % [
+		"Hold your left mouse button to move soldiers.",
+		"Make sure they don't kill anybody. The red areas tell you where",
+		"they'll deal damage. But beware: hitting the surroundings might",
+		"change the outcome of an attack."
+	],
 	"Moving soldiers consumes mana, so move them as little as possible!"
 ]
 
