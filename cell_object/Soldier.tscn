@@ -88,8 +88,7 @@ target_cells = Object(Sprite,"_import_path":NodePath(""),"pause_mode":0,"process
 
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
-visible = false
-position = Vector2( 0, -40 )
+position = Vector2( 0, -56 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 5 )
 animation = "magic"

@@ -20,13 +20,15 @@ target_cells = [ Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 
 bolt_offset = Vector2( 0, -20 )
 
 [node name="AnimatedSprite" parent="." index="0"]
-frame = 2
+visible = false
+frame = 1
 
 [node name="Sprite" parent="." index="1"]
+position = Vector2( 0, -48 )
 texture = ExtResource( 2 )
 hframes = 4
 vframes = 2
-frame = 2
+frame = 3
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/crossbow_attack = ExtResource( 8 )
