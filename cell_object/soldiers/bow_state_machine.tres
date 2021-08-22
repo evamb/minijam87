@@ -1,10 +1,10 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=14 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "bow_idle"
+animation = "bow_attack"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "bow_idle"
+animation = "bow_attack_start"
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "bow_death"
@@ -28,6 +28,7 @@ animation = "bow_walk"
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 switch_mode = 2
