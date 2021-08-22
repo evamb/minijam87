@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Level_success.mp3-2152bc854e802104c059c7404adc3358.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
