@@ -10,7 +10,7 @@
 [ext_resource path="res://cell_object/soldiers/bow_attack.tres" type="Animation" id=8]
 [ext_resource path="res://cell_object/soldiers/bow_walk.png" type="Texture" id=9]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="Bow" groups=[
 "bows",
@@ -18,11 +18,16 @@
 script = ExtResource( 3 )
 target_cells = [ Vector2( 5, 1 ) ]
 
+[node name="AnimatedSprite" parent="." index="0"]
+visible = false
+frame = 1
+
 [node name="Sprite" parent="." index="1"]
+position = Vector2( 0, -48 )
 texture = ExtResource( 9 )
 hframes = 4
 vframes = 2
-frame = 2
+frame = 4
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/bow_attack = ExtResource( 8 )
@@ -33,4 +38,4 @@ anims/bow_walk = ExtResource( 4 )
 
 [node name="AnimationTree" parent="." index="4"]
 tree_root = ExtResource( 2 )
-parameters/playback = SubResource( 3 )
+parameters/playback = SubResource( 1 )
