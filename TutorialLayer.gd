@@ -22,7 +22,9 @@ onready var _textbox = $TextBox
 
 
 func _ready() -> void:
-	_play_dialog()
+	if not Globals.get_skip_tutorial():
+		_play_dialog()
+	Globals.set_skip_tutorial(true)
 
 
 func _play_dialog() -> void:

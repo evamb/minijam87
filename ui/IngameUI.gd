@@ -43,7 +43,12 @@ func _on_Cursor_mana_changed(mana: int) -> void:
 
 func _on_StartBattleButton_button_up() -> void:
 	_start_battle_button.disabled = true
+	_restart_button.disabled = true
+	var undo_disabled = _undo_button.disabled
+	_undo_button.disabled = true
+	yield(get_tree().create_timer(3), "timeout")
 	_restart_button.disabled = false
+	_undo_button.disabled = undo_disabled
 
 
 func _on_RestartButton_button_up() -> void:
@@ -71,6 +76,7 @@ func _fade_success(show: bool) -> void:
 
 
 func _on_Cursor_failed() -> void:
+	yield(get_tree().create_timer(2), "timeout")
 	_fade_label(_fail_label, true)
 
 

@@ -29,30 +29,6 @@ Vector2( 11, 3 ): "bow",
 Vector2( 11, 4 ): "rock"
 }
 
-[node name="Rock" parent="Grid" index="9"]
-z_index = 1
-
-[node name="Tree" parent="Grid" index="11"]
-z_index = 1
-
-[node name="Tree2" parent="Grid" index="21"]
-z_index = 1
-
-[node name="Rock2" parent="Grid" index="31"]
-z_index = 1
-
-[node name="Tree3" parent="Grid" index="44"]
-z_index = 1
-
-[node name="Rock3" parent="Grid" index="58"]
-z_index = 1
-
-[node name="Rock9" parent="Grid" index="74"]
-z_index = 1
-
-[node name="Rock10" parent="Grid" index="77"]
-z_index = 1
-
 [node name="TutorialLayer" type="CanvasLayer" parent="." index="5"]
 script = ExtResource( 2 )
 

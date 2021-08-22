@@ -1,26 +1,28 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=19 format=2]
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=1]
 animation = "sword_attack"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "sword_attack_fail"
 
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=3]
 animation = "sword_attack_start"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "sword_death"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "sword_idle"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "sword_walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
@@ -28,37 +30,35 @@ animation = "sword_walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 switch_mode = 2
 priority = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
 [resource]
-states/attack/node = SubResource( 13 )
+states/attack/node = SubResource( 1 )
 states/attack/position = Vector2( 580, 145 )
-states/attack_fail/node = SubResource( 17 )
+states/attack_fail/node = SubResource( 2 )
 states/attack_fail/position = Vector2( 335, -50 )
-states/attack_start/node = SubResource( 2 )
+states/attack_start/node = SubResource( 3 )
 states/attack_start/position = Vector2( 335, 67 )
-states/death/node = SubResource( 3 )
+states/death/node = SubResource( 4 )
 states/death/position = Vector2( 335, 202 )
-states/idle/node = SubResource( 4 )
+states/idle/node = SubResource( 5 )
 states/idle/position = Vector2( 102, 145 )
-states/walk/node = SubResource( 5 )
+states/walk/node = SubResource( 6 )
 states/walk/position = Vector2( -59, 145 )
-transitions = [ "walk", "idle", SubResource( 6 ), "idle", "walk", SubResource( 7 ), "idle", "death", SubResource( 10 ), "death", "idle", SubResource( 11 ), "idle", "attack_start", SubResource( 12 ), "attack_start", "attack", SubResource( 14 ), "attack", "death", SubResource( 15 ), "attack", "idle", SubResource( 16 ), "attack", "attack_fail", SubResource( 18 ), "attack_fail", "idle", SubResource( 19 ), "attack_start", "attack_fail", SubResource( 20 ), "idle", "attack_fail", SubResource( 21 ) ]
+transitions = [ "walk", "idle", SubResource( 7 ), "idle", "walk", SubResource( 8 ), "idle", "death", SubResource( 9 ), "death", "idle", SubResource( 10 ), "idle", "attack_start", SubResource( 11 ), "attack_start", "attack", SubResource( 12 ), "attack", "death", SubResource( 13 ), "attack", "idle", SubResource( 14 ), "attack", "attack_fail", SubResource( 15 ), "attack_fail", "idle", SubResource( 16 ), "attack_start", "attack_fail", SubResource( 17 ), "idle", "attack_fail", SubResource( 18 ) ]
 start_node = "walk"
 graph_offset = Vector2( -203, -87.3987 )
