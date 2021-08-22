@@ -135,7 +135,7 @@ func occupant_blocks_drop() -> bool:
 
 
 func hit(hit_info: HitInfo) -> bool:
-	modulate = Color.red
+	modulate = HIT_MARK_COLOR
 	# returns true if hit should continue moving
 	return not _occupant or _occupant.hit(hit_info)
 

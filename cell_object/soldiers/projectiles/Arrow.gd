@@ -38,6 +38,6 @@ func _physics_process(delta: float) -> void:
 	var target_rot = (further_pos - global_position).angle()
 	if abs(target_rot - rotation) > PI:
 		target_rot += -TAU if target_rot > rotation else TAU
-	rotation = lerp(rotation, target_rot, delta * 2)
+	rotation = lerp(rotation, target_rot, delta * 4)
 	var next_pos = _curve.interpolate_baked(_curve_pos)
 	global_position = next_pos
