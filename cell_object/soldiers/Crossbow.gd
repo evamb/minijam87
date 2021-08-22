@@ -43,7 +43,7 @@ func _on_bolt_reached_target(pos: Vector2, hit_info: HitInfo) -> void:
 	if not target:
 		return
 	if "Tree" in target.get_occupant_name():
-		_spawn_bolt(target.global_position - Vector2.RIGHT * hit_info.get_direction() * 20)
+		_spawn_bolt(target.global_position + bolt_offset + Vector2.LEFT * hit_info.get_direction() * 20, false, hit_info.get_direction())
 
 
 func _reflect_crossbow(obstacle: Obstacle, hit_info: HitInfo) -> void:

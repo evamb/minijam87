@@ -17,6 +17,7 @@
 ] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 target_cells = [ Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ), Vector2( 7, 0 ), Vector2( 8, 0 ), Vector2( 9, 0 ), Vector2( 10, 0 ), Vector2( 11, 0 ), Vector2( 12, 0 ) ]
+bolt_offset = Vector2( 0, -20 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 frame = 2
@@ -25,6 +26,7 @@ frame = 2
 texture = ExtResource( 2 )
 hframes = 4
 vframes = 2
+frame = 6
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/crossbow_attack = ExtResource( 8 )
