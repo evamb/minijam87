@@ -32,6 +32,7 @@ onready var cell_object_map = {
 	"sword": preload("res://cell_object/soldiers/Sword.tscn"),
 	"bow": preload("res://cell_object/soldiers/Bow.tscn"),
 }
+onready var _tween = $Tween
 
 
 func _ready() -> void:
@@ -103,7 +104,7 @@ func create_occupant(occupant: String) -> void:
 		yield(get_tree(), "idle_frame")
 
 
-func pick_occupant() -> CellObject:
+func pick_occupant() -> Soldier:
 	var picked = _occupant
 	_occupant = null
 	return picked
@@ -137,25 +138,31 @@ func hit(hit_info: HitInfo) -> bool:
 
 func _update_modulate() -> void:
 	var drop_forbidden = _exceeds_mana or _on_enemy_side or occupant_blocks_drop()
+	var modulate_color = Color.white
 	match [_hit_marks_enabled, _droppable_on_cursor, _hovering, drop_forbidden]:
-		[true, _, _, _]: modulate = HIT_MARK_COLOR
+		[true, _, _, _]: modulate_color = HIT_MARK_COLOR
 		[false, false, true, _]:
 			if occupant_can_be_moved():
-				modulate = CAN_PICK_COLOR
+				modulate_color = CAN_PICK_COLOR
 				_show_occupant_hit_marks(true)
 			else:
-				modulate = EMPTY_COLOR
+				modulate_color = EMPTY_COLOR
 		[false, true, true, false]:
-			modulate = CAN_DROP_COLOR
+			modulate_color = CAN_DROP_COLOR
 		[false, true, true, true]:
-			modulate = DROP_BLOCKED_COLOR
-		_: modulate = EMPTY_COLOR
+			modulate_color = DROP_BLOCKED_COLOR
+		_: modulate_color = EMPTY_COLOR
 	if _occupant and _occupant.is_large:
-		_occupant.modulate.a = 0.3 if _look_through else 1.0
-	if modulate != EMPTY_COLOR:
-		modulate.a = 0.8
+		_tween.interpolate_property(_occupant,
+			"modulate",
+			null,
+			Color(1, 1, 1, 0.3) if _look_through else Color.white, 0.25)
+	if modulate_color != EMPTY_COLOR:
+		modulate_color.a = 0.8
 	else:
-		modulate.a = 0
+		modulate_color.a = 0
+	_tween.interpolate_property(self, "modulate", null, modulate_color, 0.15)
+	_tween.start()
 
 
 func _show_occupant_hit_marks(enabled: bool) -> void:

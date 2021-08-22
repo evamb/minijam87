@@ -6,6 +6,8 @@ signal got_hit
 
 export(Array, Vector2) var target_cells
 
+onready var _magic_sprite = $AnimatedSprite
+
 
 func spawn() -> void:
 	_tween.interpolate_property(self, "position",
@@ -48,3 +50,7 @@ func hit(hit_info: HitInfo) -> bool:
 
 func weapon_hit_obstacle(_obstacle: Obstacle, _hit_info: HitInfo) -> bool:
 	return true
+
+
+func set_picked(picked: bool) -> void:
+	_magic_sprite.visible = picked

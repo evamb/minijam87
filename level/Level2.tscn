@@ -83,6 +83,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Bow3" parent="Grid" index="11" instance=ExtResource( 6 )]
 position = Vector2( -405, 45 )
+z_index = 1
 
 [node name="GridCell83" parent="Grid" index="12" instance=ExtResource( 4 )]
 position = Vector2( -405, 135 )
@@ -90,6 +91,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Bow4" parent="Grid" index="13" instance=ExtResource( 6 )]
 position = Vector2( -405, 135 )
+z_index = 1
 
 [node name="GridCell84" parent="Grid" index="14" instance=ExtResource( 4 )]
 position = Vector2( -405, 225 )
@@ -97,6 +99,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Sword6" parent="Grid" index="15" instance=ExtResource( 7 )]
 position = Vector2( -405, 225 )
+z_index = 1
 
 [node name="GridCell85" parent="Grid" index="16" instance=ExtResource( 4 )]
 position = Vector2( -315, -225 )
@@ -120,6 +123,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Sword7" parent="Grid" index="21" instance=ExtResource( 7 )]
 position = Vector2( -315, 135 )
+z_index = 1
 
 [node name="GridCell90" parent="Grid" index="22" instance=ExtResource( 4 )]
 position = Vector2( -315, 225 )
@@ -181,6 +185,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Crossbow4" parent="Grid" index="37" instance=ExtResource( 5 )]
 position = Vector2( -135, 225 )
+z_index = 1
 
 [node name="GridCell103" parent="Grid" index="38" instance=ExtResource( 4 )]
 position = Vector2( -45, -225 )
@@ -199,6 +204,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Sword8" parent="Grid" index="42" instance=ExtResource( 7 )]
 position = Vector2( -45, -45 )
+z_index = 1
 
 [node name="GridCell106" parent="Grid" index="43" instance=ExtResource( 4 )]
 position = Vector2( -45, 45 )
@@ -206,6 +212,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Bow5" parent="Grid" index="44" instance=ExtResource( 6 )]
 position = Vector2( -45, 45 )
+z_index = 1
 
 [node name="GridCell107" parent="Grid" index="45" instance=ExtResource( 4 )]
 position = Vector2( -45, 135 )
@@ -217,6 +224,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Bow6" parent="Grid" index="47" instance=ExtResource( 6 )]
 position = Vector2( -45, 225 )
+z_index = 1
 
 [node name="GridCell109" parent="Grid" index="48" instance=ExtResource( 4 )]
 position = Vector2( 45, -225 )
@@ -224,6 +232,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Crossbow5" parent="Grid" index="49" instance=ExtResource( 5 )]
 position = Vector2( 45, -225 )
+z_index = 1
 
 [node name="GridCell110" parent="Grid" index="50" instance=ExtResource( 4 )]
 position = Vector2( 45, -135 )
@@ -306,6 +315,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Sword10" parent="Grid" index="70" instance=ExtResource( 7 )]
 position = Vector2( 315, -135 )
+z_index = 1
 
 [node name="GridCell129" parent="Grid" index="71" instance=ExtResource( 4 )]
 position = Vector2( 315, -45 )
@@ -313,6 +323,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Crossbow6" parent="Grid" index="72" instance=ExtResource( 5 )]
 position = Vector2( 315, -45 )
+z_index = 1
 
 [node name="GridCell130" parent="Grid" index="73" instance=ExtResource( 4 )]
 position = Vector2( 315, 45 )
@@ -320,6 +331,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Crossbow7" parent="Grid" index="74" instance=ExtResource( 5 )]
 position = Vector2( 315, 45 )
+z_index = 1
 
 [node name="GridCell131" parent="Grid" index="75" instance=ExtResource( 4 )]
 position = Vector2( 315, 135 )
@@ -331,6 +343,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Bow7" parent="Grid" index="77" instance=ExtResource( 6 )]
 position = Vector2( 315, 225 )
+z_index = 1
 
 [node name="GridCell133" parent="Grid" index="78" instance=ExtResource( 4 )]
 position = Vector2( 405, -225 )
@@ -364,6 +377,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Sword11" parent="Grid" index="86" instance=ExtResource( 7 )]
 position = Vector2( 405, 225 )
+z_index = 1
 
 [node name="GridCell139" parent="Grid" index="87" instance=ExtResource( 4 )]
 position = Vector2( 495, -225 )
@@ -383,6 +397,7 @@ scale = Vector2( 1.375, 1.375 )
 
 [node name="Bow8" parent="Grid" index="91" instance=ExtResource( 6 )]
 position = Vector2( 495, 45 )
+z_index = 1
 
 [node name="GridCell143" parent="Grid" index="92" instance=ExtResource( 4 )]
 position = Vector2( 495, 135 )
