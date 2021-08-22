@@ -1,9 +1,18 @@
 extends Node
 
 var _used_mana = {}
+var _skip_tutorial = false
 
 func _ready() -> void:
 	randomize()
+
+
+func set_skip_tutorial(skip: bool) -> void:
+	_skip_tutorial = skip
+
+
+func get_skip_tutorial() -> bool:
+	return _skip_tutorial
 
 
 func set_used_mana(level: int, mana: int) -> void:
