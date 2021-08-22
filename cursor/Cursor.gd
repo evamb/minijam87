@@ -136,6 +136,8 @@ func _reset_scene_objects() -> void:
 		grid_cell.modulate.a = 0
 	for projectile in get_tree().get_nodes_in_group("projectiles"):
 		projectile.queue_free()
+	for soldier in get_tree().get_nodes_in_group("soldiers"):
+		soldier.start_attack()
 
 
 func _on_UndoButton_button_up() -> void:
@@ -177,3 +179,5 @@ func _on_Soldier_got_hit() -> void:
 
 func _on_Grid_all_standing() -> void:
 	monitoring = true
+	for soldier in get_tree().get_nodes_in_group("soldiers"):
+		soldier.start_attack()

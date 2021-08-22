@@ -10,7 +10,7 @@ export(bool) var blocks_drop
 export(bool) var is_large
 
 onready var _tween := $Tween
-onready var _sprite = $Sprite
+
 
 func get_cell_pos() -> Vector2:
 	return _cell_pos
