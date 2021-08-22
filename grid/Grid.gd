@@ -81,8 +81,8 @@ func _build_grid() -> void:
 	var height_offset = floor(half_height)
 	_waiting_fns = 0
 	var awaited_fns = Array();
-	for x in range(-width_offset, ceil(half_width)):
-		for y in range(-height_offset, ceil(half_height)):
+	for y in range(-height_offset, ceil(half_height)):
+		for x in range(-width_offset, ceil(half_width)):
 			var cell_coords = Vector2(x, y)
 			var cell = GridCell.instance()
 			cell.set_cell_pos(cell_coords)
