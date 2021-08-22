@@ -16,6 +16,10 @@ func fire(target: Vector2) -> void:
 	_curve = curve
 	_baked_length = curve.get_baked_length()
 	set_physics_process(true)
+	var next_pos = _curve.interpolate_baked(1)
+	var target_rot = (next_pos - global_position).angle()
+	
+	rotation = target_rot
 
 
 func _ready() -> void:
@@ -30,6 +34,10 @@ func _physics_process(delta: float) -> void:
 	if _curve_pos > _baked_length:
 		set_physics_process(false)
 		
+	var further_pos = _curve.interpolate_baked(min(_curve_pos + 120, _baked_length))
+	var target_rot = (further_pos - global_position).angle()
+	if abs(target_rot - rotation) > PI:
+		target_rot += -TAU if target_rot > rotation else TAU
+	rotation = lerp(rotation, target_rot, delta * 2)
 	var next_pos = _curve.interpolate_baked(_curve_pos)
-	
 	global_position = next_pos
