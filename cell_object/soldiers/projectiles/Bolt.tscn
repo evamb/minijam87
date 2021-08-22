@@ -9,4 +9,4 @@
 scale = Vector2( 6, 6 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
-velocity = 2000.0
+velocity = 2250.0

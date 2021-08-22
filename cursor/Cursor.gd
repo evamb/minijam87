@@ -143,6 +143,8 @@ func _reset_scene_objects() -> void:
 		projectile.queue_free()
 	for soldier in get_tree().get_nodes_in_group("soldiers"):
 		soldier.start_attack()
+	for obstacle in get_tree().get_nodes_in_group("obstacles"):
+		obstacle.reset()
 
 
 func _on_UndoButton_button_up() -> void:
@@ -169,7 +171,11 @@ func _on_StartBattleButton_button_up() -> void:
 	for soldier in soldiers:
 		if not soldier.is_connected("got_hit", self, "_on_Soldier_got_hit"):
 			soldier.connect("got_hit", self, "_on_Soldier_got_hit", [], CONNECT_ONESHOT)
-	for soldier in soldiers:
+	for soldier in get_tree().get_nodes_in_group("crossbows"):
+		soldier.execute_attack()
+	for soldier in get_tree().get_nodes_in_group("swords"):
+		soldier.execute_attack()
+	for soldier in get_tree().get_nodes_in_group("bows"):
 		soldier.execute_attack()
 	Globals.set_used_mana(level, _used_mana)
 	if _soldier_got_hit:
