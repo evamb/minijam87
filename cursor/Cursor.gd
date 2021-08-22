@@ -20,6 +20,8 @@ var _mana = 10
 var _used_mana = 0
 var _soldier_got_hit = false
 
+onready var _audio = $AudioStreamPlayer
+
 
 func _ready() -> void:
 # warning-ignore:return_value_discarded
@@ -100,6 +102,7 @@ func _drop_occupant() -> void:
 
 
 func _pick_occupant() -> void:
+	_audio.play()
 	Globals.set_used_mana(level, 0)
 	emit_signal("picked")
 	_reset_scene_objects()

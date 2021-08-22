@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pickup_soldier.mp3-a9f7bd43bea5e8f72f6a2af6ccafc6ce.mp3str"
+
+[deps]
+
+source_file="res://cursor/Pickup_soldier.mp3"
+dest_files=[ "res://.import/Pickup_soldier.mp3-a9f7bd43bea5e8f72f6a2af6ccafc6ce.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

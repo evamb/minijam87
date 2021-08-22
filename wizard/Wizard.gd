@@ -4,7 +4,7 @@ var field_magic: Array = []
 
 onready var state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 onready var FieldMagic = preload("res://wizard/FieldMagic.tscn")
-
+onready var _audio = $AudioStreamPlayer
 
 func start_magic() -> void:
 	state_machine.travel('magic_loop')
@@ -15,6 +15,7 @@ func stop_magic() -> void:
 
 
 func magic_stop_time() -> void:
+	_audio.play()
 	state_machine.travel("magic_stop_time")
 	var x_extends = 500
 	var y_extends = 300

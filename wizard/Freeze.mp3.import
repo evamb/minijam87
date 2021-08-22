@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Freeze.mp3-ac62766a995680a1a719e2b55879de4e.mp3str"
+
+[deps]
+
+source_file="res://wizard/Freeze.mp3"
+dest_files=[ "res://.import/Freeze.mp3-ac62766a995680a1a719e2b55879de4e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

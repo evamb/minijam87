@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tree_falling.mp3-6b5c2bef4a115c0cf3cbd55ebc9b50a5.mp3str"
+
+[deps]
+
+source_file="res://cell_object/obstacles/Tree_falling.mp3"
+dest_files=[ "res://.import/Tree_falling.mp3-6b5c2bef4a115c0cf3cbd55ebc9b50a5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
