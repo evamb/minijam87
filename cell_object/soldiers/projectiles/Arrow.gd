@@ -26,6 +26,10 @@ func fire(target: Vector2) -> void:
 	rotation = target_rot
 
 
+func get_curve_progress() -> float:
+	return _curve_pos / _baked_length
+
+
 func _ready() -> void:
 	set_physics_process(false)
 
