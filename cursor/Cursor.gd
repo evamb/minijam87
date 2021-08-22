@@ -57,7 +57,7 @@ func _change_mana(delta: int) -> void:
 
 
 func _undo() -> void:
-	_reset_grid_cell_alpha()
+	_reset_scene_objects()
 	var fromTo = _undo_stack.pop_back()
 	if fromTo:
 		var occupant = fromTo[1].pick_occupant()
@@ -99,7 +99,7 @@ func _drop_occupant() -> void:
 func _pick_occupant() -> void:
 	Globals.set_used_mana(level, 0)
 	emit_signal("picked")
-	_reset_grid_cell_alpha()
+	_reset_scene_objects()
 	_latest_area.set_droppable_on_cursor(true)
 	_dragged_area = _latest_area
 	_picked_occupant = _dragged_area.pick_occupant()
@@ -131,16 +131,18 @@ func _area_exited(area: Area2D) -> void:
 			_latest_area = null
 
 
-func _reset_grid_cell_alpha() -> void:
+func _reset_scene_objects() -> void:
 	for grid_cell in get_tree().get_nodes_in_group("grid_cell"):
 		grid_cell.modulate.a = 0
+	for projectile in get_tree().get_nodes_in_group("projectiles"):
+		projectile.queue_free()
 
 
 func _on_UndoButton_button_up() -> void:
 	monitoring = true
 	if not _dragged_area:
 		_undo()
-		_reset_grid_cell_alpha()
+		_reset_scene_objects()
 
 
 func _on_RestartButton_button_up() -> void:
@@ -149,7 +151,7 @@ func _on_RestartButton_button_up() -> void:
 	while _undo_stack.size() > 0:
 		_undo()
 		yield(get_tree().create_timer(0.1), "timeout")
-	_reset_grid_cell_alpha()
+	_reset_scene_objects()
 	emit_signal("can_undo", false)
 
 
@@ -158,7 +160,8 @@ func _on_StartBattleButton_button_up() -> void:
 	_soldier_got_hit = false
 	var soldiers = get_tree().get_nodes_in_group("soldiers")
 	for soldier in soldiers:
-		soldier.connect("got_hit", self, "_on_Soldier_got_hit", [], CONNECT_ONESHOT)
+		if not soldier.is_connected("got_hit", self, "_on_Soldier_got_hit"):
+			soldier.connect("got_hit", self, "_on_Soldier_got_hit", [], CONNECT_ONESHOT)
 	for soldier in soldiers:
 		soldier.execute_attack()
 	Globals.set_used_mana(level, _used_mana)

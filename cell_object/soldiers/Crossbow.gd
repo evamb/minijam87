@@ -1,10 +1,49 @@
 tool
 extends Soldier
 
+export(Vector2) var bolt_offset = Vector2.ZERO
+
+onready var Bolt = preload("res://cell_object/soldiers/projectiles/Bolt.tscn")
+
+var _reflect_hits = Array()
+
+
+func execute_attack():
+	var hit_info = .execute_attack()
+	_spawn_bolt(global_position + bolt_offset, true, _direction, hit_info)
+
+
 func weapon_hit_obstacle(obstacle: Obstacle, hit_info: HitInfo) -> bool:
 	if "Rock" in obstacle.name:
 		_reflect_crossbow(obstacle, hit_info)
 	return false
+
+
+func _spawn_bolt(global_pos: Vector2, do_fire = false, direction: int = 0, hit_info: HitInfo = null) -> void:
+	var bolt = Bolt.instance()
+	get_parent().add_child(bolt)
+	bolt.global_position = global_pos
+	bolt.flip_h = direction < 0
+	var distance = 2000
+	if hit_info:
+		var target = hit_info.get_target()
+		distance = global_pos.distance_to(target.global_position)
+	if do_fire:
+		bolt.fire(distance, direction * Vector2.RIGHT)
+		bolt.connect("reached_target", self, "_on_bolt_reached_target", [hit_info], CONNECT_ONESHOT)
+
+
+func _on_bolt_reached_target(pos: Vector2, hit_info: HitInfo) -> void:
+	var hit = _reflect_hits.pop_back()
+	if hit:
+		_spawn_bolt(pos, true, hit.get_direction(), hit)
+	if not hit_info:
+		return
+	var target = hit_info.get_target()
+	if not target:
+		return
+	if "Tree" in target.get_occupant_name():
+		_spawn_bolt(target.global_position - Vector2.RIGHT * hit_info.get_direction() * 20)
 
 
 func _reflect_crossbow(obstacle: Obstacle, hit_info: HitInfo) -> void:
@@ -13,9 +52,9 @@ func _reflect_crossbow(obstacle: Obstacle, hit_info: HitInfo) -> void:
 	var target_cells = Array()
 	for i in 12:
 		target_cells.append(Vector2(1 + i, 0))
-	var new_hit = Globals.clone_hit_info(hit_info)
-	new_hit.set_direction(dir)
 	for cell in Globals.calc_hit_cells(start_cell, target_cells, dir):
-		if not cell.hit(new_hit):
+		var cur_hit = HitInfo.new(hit_info.get_source(), dir, cell, hit_info.get_bounces())
+		if not cell.hit(cur_hit):
+			_reflect_hits.append(cur_hit)
 			return
 

@@ -104,6 +104,10 @@ func create_occupant(occupant: String) -> void:
 		yield(get_tree(), "idle_frame")
 
 
+func get_occupant_name() -> String:
+	return "" if not _occupant else _occupant.name
+
+
 func pick_occupant() -> Soldier:
 	var picked = _occupant
 	_occupant = null
