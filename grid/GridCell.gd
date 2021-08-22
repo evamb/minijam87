@@ -57,7 +57,7 @@ func set_hovering(enabled: bool) -> void:
 	_hovering = enabled
 	if not enabled:
 		_show_occupant_hit_marks(false)
-	var lower_cell = $"/root/Main/Grid".get_cell(_cell_pos + Vector2.DOWN)
+	var lower_cell = get_parent().get_cell(_cell_pos + Vector2.DOWN)
 	if lower_cell:
 		lower_cell.set_look_through(enabled)
 	_update_modulate()

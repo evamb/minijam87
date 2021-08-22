@@ -12,7 +12,6 @@ func spawn() -> void:
 			position + Vector2.LEFT * 1000 * _direction, position, rand_range(4.0, 5.0), Tween.TRANS_CUBIC)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
-	print("spawn completed!")
 
 
 func _ready() -> void:
@@ -23,6 +22,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		execute_attack()
+
+
+func set_direction(dir: int) -> void:
+	.set_direction(dir)
+	_sprite.flip_h = dir < 0
 
 
 func get_hit_cells() -> Array:

@@ -9,6 +9,7 @@ signal picked
 signal dropped
 
 export(int) var level = 0
+export(int) var start_mana = 10
 
 var _latest_area: GridCell
 var _dragged_area: GridCell
@@ -25,6 +26,7 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	connect("area_exited", self, "_area_exited")
 	yield(get_tree(), "idle_frame")
+	_mana = start_mana
 	emit_signal("mana_changed", _mana)
 	monitoring = false
 
