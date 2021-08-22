@@ -19,10 +19,12 @@ func spawn() -> void:
 			position + Vector2.LEFT * 1000 * _direction, position, rand_range(4.0, 5.0), Tween.TRANS_CUBIC)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
+	yield(get_tree().create_timer(randf() * 0.4), "timeout")
 	_state_machine.travel("idle")
 
 
 func start_attack() -> void:
+	yield(get_tree().create_timer(randf() * 0.4), "timeout")
 	_state_machine.travel("attack_start")
 
 

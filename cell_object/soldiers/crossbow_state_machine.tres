@@ -1,0 +1,49 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=14 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "crossbow_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "crossbow_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "crossbow_death"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "crossbow_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "crossbow_walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+auto_advance = true
+
+[resource]
+states/attack/node = SubResource( 8 )
+states/attack/position = Vector2( 424, 99 )
+states/attack_start/node = SubResource( 9 )
+states/attack_start/position = Vector2( 288, 18 )
+states/death/node = SubResource( 1 )
+states/death/position = Vector2( 288, 174 )
+states/idle/node = SubResource( 2 )
+states/idle/position = Vector2( 132, 99 )
+states/walk/node = SubResource( 3 )
+states/walk/position = Vector2( -59, 99 )
+transitions = [ "walk", "idle", SubResource( 4 ), "idle", "walk", SubResource( 5 ), "idle", "death", SubResource( 6 ), "death", "idle", SubResource( 7 ), "idle", "attack_start", SubResource( 10 ), "attack_start", "attack", SubResource( 11 ), "attack", "death", SubResource( 12 ), "attack", "idle", SubResource( 13 ) ]
+start_node = "walk"
+graph_offset = Vector2( -147, -44 )

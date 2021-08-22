@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://cell_object/Soldier.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cell_object/soldiers/sword_walk.anim" type="Animation" id=2]
 [ext_resource path="res://cell_object/soldiers/Sword.gd" type="Script" id=3]
-[ext_resource path="res://cell_object/soldiers/sword_walk.png" type="Texture" id=4]
+[ext_resource path="res://cell_object/soldiers/sword_attack.png" type="Texture" id=4]
 [ext_resource path="res://cell_object/soldiers/sword_idle.anim" type="Animation" id=5]
 [ext_resource path="res://cell_object/soldiers/sword_death.tres" type="Animation" id=6]
 [ext_resource path="res://cell_object/soldiers/sword_attack.tres" type="Animation" id=7]
 [ext_resource path="res://cell_object/soldiers/sword_attack_start.tres" type="Animation" id=8]
+[ext_resource path="res://cell_object/soldiers/sword_state_machine.tres" type="AnimationNodeStateMachine" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -22,7 +23,7 @@ frame = 1
 texture = ExtResource( 4 )
 hframes = 4
 vframes = 2
-frame = 4
+frame = 1
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/sword_attack = ExtResource( 7 )
@@ -32,4 +33,5 @@ anims/sword_idle = ExtResource( 5 )
 anims/sword_walk = ExtResource( 2 )
 
 [node name="AnimationTree" parent="." index="4"]
+tree_root = ExtResource( 9 )
 parameters/playback = SubResource( 1 )
