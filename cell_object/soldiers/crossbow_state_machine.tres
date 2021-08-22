@@ -28,6 +28,7 @@ animation = "crossbow_walk"
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 switch_mode = 2

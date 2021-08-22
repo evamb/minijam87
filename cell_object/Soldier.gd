@@ -51,8 +51,12 @@ func execute_attack() -> HitInfo:
 
 func hit(hit_info: HitInfo) -> bool:
 	emit_signal("got_hit")
-	_play_anim("death", 0.5)
-	if "Crossbow" in hit_info.get_source().name:
+	var source_name = hit_info.get_source().name
+	var death_delay = 0.5
+	if "Bow" in source_name:
+		death_delay = 1.5
+	_play_anim("death", death_delay)
+	if "Crossbow" in source_name:
 		return false
 	return true
 

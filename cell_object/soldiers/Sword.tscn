@@ -17,7 +17,7 @@ script = ExtResource( 3 )
 target_cells = [ Vector2( 1, -1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
 
 [node name="AnimatedSprite" parent="." index="0"]
-frame = 3
+frame = 1
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 4 )

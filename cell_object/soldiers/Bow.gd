@@ -3,14 +3,20 @@ extends Soldier
 
 onready var Arrow = preload("res://cell_object/soldiers/projectiles/Arrow.tscn")
 
-func execute_attack():
-	var hit_info = .execute_attack()
+var _cur_hit_info = null
+
+func execute_attack() -> HitInfo:
+	_cur_hit_info = .execute_attack()
+	return _cur_hit_info
+
+
+func fire_arrow() -> void:
 	var arrow = Arrow.instance()
 	get_parent().add_child(arrow)
-	arrow.global_position = global_position
+	arrow.global_position = global_position + Vector2.UP * 30
 	var target;
-	if hit_info:
-		target = hit_info.get_target().global_position
+	if _cur_hit_info:
+		target = _cur_hit_info.get_target().global_position
 	else:
 		var hit_cells = get_hit_cells()
 		if hit_cells.size() > 0:
