@@ -7,6 +7,7 @@ signal got_hit
 export(Array, Vector2) var target_cells
 
 var _prev_pos: Vector2
+var _anim_wait_timer: SceneTreeTimer = null
 
 onready var _magic_sprite = $AnimatedSprite
 onready var _state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
@@ -27,7 +28,9 @@ func start_attack() -> void:
 
 
 func _play_anim(anim: String, wait_time: float) -> void:
-	yield(get_tree().create_timer(wait_time), "timeout")
+	_anim_wait_timer = get_tree().create_timer(wait_time)
+	yield(_anim_wait_timer, "timeout")
+	_anim_wait_timer = null
 	_state_machine.travel(anim)
 
 
@@ -51,11 +54,13 @@ func execute_attack() -> HitInfo:
 
 func hit(hit_info: HitInfo) -> bool:
 	emit_signal("got_hit")
-	var source_name = hit_info.get_source().name
+	var source = hit_info.get_source()
+	var source_name = source.name
 	var death_delay = 0.5
 	if "Bow" in source_name:
 		death_delay = 1.5 if hit_info.get_bounces() == 0 else 2.4
-	_play_anim("death", death_delay)
+	if source != self:
+		_play_anim("death", death_delay)
 	if "Crossbow" in source_name:
 		return false
 	return true
