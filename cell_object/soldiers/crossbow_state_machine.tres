@@ -1,10 +1,10 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=14 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "crossbow_idle"
+animation = "crossbow_attack"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "crossbow_idle"
+animation = "crossbow_attack_start"
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "crossbow_death"
@@ -35,9 +35,9 @@ auto_advance = true
 
 [resource]
 states/attack/node = SubResource( 8 )
-states/attack/position = Vector2( 424, 99 )
+states/attack/position = Vector2( 425, 99 )
 states/attack_start/node = SubResource( 9 )
-states/attack_start/position = Vector2( 288, 18 )
+states/attack_start/position = Vector2( 288, 17 )
 states/death/node = SubResource( 1 )
 states/death/position = Vector2( 288, 174 )
 states/idle/node = SubResource( 2 )

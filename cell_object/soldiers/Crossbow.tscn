@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://cell_object/Soldier.tscn" type="PackedScene" id=1]
-[ext_resource path="res://cell_object/soldiers/crossbow_walk.png" type="Texture" id=2]
+[ext_resource path="res://cell_object/soldiers/crossbow_attack_start.tres" type="Animation" id=2]
 [ext_resource path="res://cell_object/soldiers/Crossbow.gd" type="Script" id=3]
 [ext_resource path="res://cell_object/soldiers/crossbow_walk.tres" type="Animation" id=4]
 [ext_resource path="res://cell_object/soldiers/crossbow_death.tres" type="Animation" id=5]
 [ext_resource path="res://cell_object/soldiers/crossbow_state_machine.tres" type="AnimationNodeStateMachine" id=6]
 [ext_resource path="res://cell_object/soldiers/crossbow_idle.tres" type="Animation" id=7]
+[ext_resource path="res://cell_object/soldiers/crossbow_attack.tres" type="Animation" id=8]
+[ext_resource path="res://cell_object/soldiers/crossbow_idle.png" type="Texture" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -15,15 +17,16 @@ script = ExtResource( 3 )
 target_cells = [ Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ), Vector2( 7, 0 ), Vector2( 8, 0 ), Vector2( 9, 0 ), Vector2( 10, 0 ), Vector2( 11, 0 ), Vector2( 12, 0 ) ]
 
 [node name="AnimatedSprite" parent="." index="0"]
-frame = 1
+frame = 2
 
 [node name="Sprite" parent="." index="1"]
-texture = ExtResource( 2 )
-hframes = 4
-vframes = 2
-frame = 4
+texture = ExtResource( 9 )
+hframes = 2
+frame = 1
 
 [node name="AnimationPlayer" parent="." index="3"]
+anims/crossbow_attack = ExtResource( 8 )
+anims/crossbow_attack_start = ExtResource( 2 )
 anims/crossbow_death = ExtResource( 5 )
 anims/crossbow_idle = ExtResource( 7 )
 anims/crossbow_walk = ExtResource( 4 )
