@@ -6,24 +6,29 @@ signal got_hit
 
 export(Array, Vector2) var target_cells
 
+var _prev_pos: Vector2
+
 onready var _magic_sprite = $AnimatedSprite
+onready var _state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
+onready var _sprite = $Sprite
 
 
 func spawn() -> void:
+	_prev_pos = global_position
 	_tween.interpolate_property(self, "position",
 			position + Vector2.LEFT * 1000 * _direction, position, rand_range(4.0, 5.0), Tween.TRANS_CUBIC)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
+	_state_machine.travel("idle")
 
 
-func _ready() -> void:
-	if Engine.editor_hint:
-		set_process(false)
+func start_attack() -> void:
+	_state_machine.travel("attack_start")
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		execute_attack()
+func _play_anim(anim: String, wait_time: float) -> void:
+	yield(get_tree().create_timer(wait_time), "timeout")
+	_state_machine.travel(anim)
 
 
 func set_direction(dir: int) -> void:
@@ -36,6 +41,7 @@ func get_hit_cells() -> Array:
 
 
 func execute_attack() -> HitInfo:
+	_play_anim("attack", rand_range(0.1, 0.5))
 	for cell in get_hit_cells():
 		var hit_info = HitInfo.new(self, _direction, cell)
 		if not cell.hit(hit_info):
@@ -45,6 +51,7 @@ func execute_attack() -> HitInfo:
 
 func hit(hit_info: HitInfo) -> bool:
 	emit_signal("got_hit")
+	_play_anim("death", 0.5)
 	if "Crossbow" in hit_info.get_source().name:
 		return false
 	return true
