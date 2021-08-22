@@ -2,6 +2,9 @@ extends Node
 
 var _used_mana = {}
 
+func _ready() -> void:
+	randomize()
+
 
 func set_used_mana(level: int, mana: int) -> void:
 	_used_mana[level] = mana

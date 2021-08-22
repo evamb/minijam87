@@ -442,6 +442,7 @@ margin_bottom = 683.0
 [node name="Wizard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 720.737, 935.444 )
 
+[connection signal="all_standing" from="Grid" to="Wizard" method="magic_stop_time"]
 [connection signal="all_standing" from="Grid" to="Cursor" method="_on_Grid_all_standing"]
 [connection signal="can_undo" from="Cursor" to="CanvasLayer/IngameUI" method="_on_Cursor_can_undo"]
 [connection signal="dropped" from="Cursor" to="Wizard" method="stop_magic"]
