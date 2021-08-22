@@ -29,6 +29,39 @@ Vector2( 11, 3 ): "bow",
 Vector2( 11, 4 ): "rock"
 }
 
+[node name="Crossbow" parent="Grid" index="4"]
+z_index = 1
+
+[node name="Sword" parent="Grid" index="24"]
+z_index = 1
+
+[node name="Crossbow2" parent="Grid" index="42"]
+z_index = 1
+
+[node name="Bow" parent="Grid" index="56"]
+z_index = 1
+
+[node name="Sword2" parent="Grid" index="60"]
+z_index = 1
+
+[node name="Bow2" parent="Grid" index="62"]
+z_index = 1
+
+[node name="Sword3" parent="Grid" index="66"]
+z_index = 1
+
+[node name="Crossbow3" parent="Grid" index="71"]
+z_index = 1
+
+[node name="Sword4" parent="Grid" index="83"]
+z_index = 1
+
+[node name="Sword5" parent="Grid" index="85"]
+z_index = 1
+
+[node name="Sword9" parent="Grid" index="88"]
+z_index = 1
+
 [node name="TutorialLayer" type="CanvasLayer" parent="." index="5"]
 script = ExtResource( 2 )
 

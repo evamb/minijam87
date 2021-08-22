@@ -2,6 +2,7 @@ tool
 extends Soldier
 
 onready var Arrow = preload("res://cell_object/soldiers/projectiles/Arrow.tscn")
+onready var _stream_arrow_fired = preload("res://cell_object/soldiers/Bow_arrow_fired.mp3")
 
 var _cur_hit_info = null
 var _latest_arrow = null
@@ -12,6 +13,8 @@ func execute_attack() -> HitInfo:
 
 
 func fire_arrow() -> void:
+	_audio.stream = _stream_arrow_fired
+	_audio.play()
 	var arrow = Arrow.instance()
 	_latest_arrow = arrow
 	get_parent().add_child(arrow)

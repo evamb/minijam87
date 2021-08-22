@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/music_calm_green_lake_serenade.ogg-f3c0ec45faf3f94f55a1995bdd3c1780.oggstr"
+
+[deps]
+
+source_file="res://music_calm_green_lake_serenade.ogg"
+dest_files=[ "res://.import/music_calm_green_lake_serenade.ogg-f3c0ec45faf3f94f55a1995bdd3c1780.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -12,6 +12,9 @@ var _anim_wait_timer: SceneTreeTimer = null
 onready var _magic_sprite = $AnimatedSprite
 onready var _state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 onready var _sprite = $Sprite
+onready var _audio = $AudioStreamPlayer2D
+onready var _stream_arrow_hits = preload("res://cell_object/soldiers/Bow_arrow_hits_soldier.mp3")
+onready var _stream_death = preload("res://cell_object/soldiers/Death_fall_to_ground.mp3")
 
 
 func spawn() -> void:
@@ -27,10 +30,13 @@ func start_attack() -> void:
 	_state_machine.travel("attack_start")
 
 
-func _play_anim(anim: String, wait_time: float) -> void:
+func _play_anim(anim: String, wait_time: float, stream: AudioStream = null) -> void:
 	_anim_wait_timer = get_tree().create_timer(wait_time)
 	yield(_anim_wait_timer, "timeout")
 	_anim_wait_timer = null
+	if stream:
+		_audio.stream = stream
+		_audio.play()
 	_state_machine.travel(anim)
 
 
@@ -57,10 +63,12 @@ func hit(hit_info: HitInfo) -> bool:
 	var source = hit_info.get_source()
 	var source_name = source.name
 	var death_delay = 0.5
+	var stream = null
 	if "Bow" in source_name:
 		death_delay = 1.5 if hit_info.get_bounces() == 0 else 2.4
+		stream = _stream_arrow_hits
 	if source != self:
-		_play_anim("death", death_delay)
+		_play_anim("death", death_delay, stream)
 	if "Crossbow" in source_name:
 		return false
 	return true

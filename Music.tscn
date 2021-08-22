@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://music_calm_green_lake_serenade.ogg" type="AudioStream" id=1]
+
+[node name="Music" type="AudioStreamPlayer"]
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = -14.182
+autoplay = true

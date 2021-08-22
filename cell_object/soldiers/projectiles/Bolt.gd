@@ -7,11 +7,17 @@ export(float) var velocity
 var _distance
 var _direction
 
+onready var _audio = $AudioStreamPlayer2D
 
 func fire(distance: float, direction: Vector2) -> void:
 	_distance = distance
 	_direction = direction
 	set_physics_process(true)
+
+
+func play_stream(stream: AudioStream) -> void:
+	_audio.stream = stream
+	_audio.play()
 
 
 func _ready() -> void:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bow_arrow_fired.mp3-095d2d17a570598991bd08439f240279.mp3str"
+
+[deps]
+
+source_file="res://cell_object/soldiers/Bow_arrow_fired.mp3"
+dest_files=[ "res://.import/Bow_arrow_fired.mp3-095d2d17a570598991bd08439f240279.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

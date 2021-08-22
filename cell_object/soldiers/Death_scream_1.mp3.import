@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Death_scream_1.mp3-96d239b78ab0a85c35ce304252505240.mp3str"
+
+[deps]
+
+source_file="res://cell_object/soldiers/Death_scream_1.mp3"
+dest_files=[ "res://.import/Death_scream_1.mp3-96d239b78ab0a85c35ce304252505240.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

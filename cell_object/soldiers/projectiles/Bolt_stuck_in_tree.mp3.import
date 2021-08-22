@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bolt_stuck_in_tree.mp3-4ffcb0b87af4b4bd000e06e2042127be.mp3str"
+
+[deps]
+
+source_file="res://cell_object/soldiers/projectiles/Bolt_stuck_in_tree.mp3"
+dest_files=[ "res://.import/Bolt_stuck_in_tree.mp3-4ffcb0b87af4b4bd000e06e2042127be.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

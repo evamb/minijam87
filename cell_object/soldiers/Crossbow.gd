@@ -4,6 +4,7 @@ extends Soldier
 export(Vector2) var bolt_offset = Vector2.ZERO
 
 onready var Bolt = preload("res://cell_object/soldiers/projectiles/Bolt.tscn")
+onready var _stream_stuck_in_tree = preload("res://cell_object/soldiers/projectiles/Bolt_stuck_in_tree.mp3")
 
 var _reflect_hits = Array()
 
@@ -19,7 +20,7 @@ func weapon_hit_obstacle(obstacle: Obstacle, hit_info: HitInfo) -> bool:
 	return false
 
 
-func _spawn_bolt(global_pos: Vector2, do_fire = false, direction: int = 0, hit_info: HitInfo = null) -> void:
+func _spawn_bolt(global_pos: Vector2, do_fire = false, direction: int = 0, hit_info: HitInfo = null) -> Node:
 	var bolt = Bolt.instance()
 	get_parent().add_child(bolt)
 	bolt.global_position = global_pos
@@ -31,6 +32,7 @@ func _spawn_bolt(global_pos: Vector2, do_fire = false, direction: int = 0, hit_i
 	if do_fire:
 		bolt.fire(distance, direction * Vector2.RIGHT)
 		bolt.connect("reached_target", self, "_on_bolt_reached_target", [hit_info], CONNECT_ONESHOT)
+	return bolt
 
 
 func _on_bolt_reached_target(pos: Vector2, hit_info: HitInfo) -> void:
@@ -43,7 +45,9 @@ func _on_bolt_reached_target(pos: Vector2, hit_info: HitInfo) -> void:
 	if not target:
 		return
 	if "Tree" in target.get_occupant_name():
-		_spawn_bolt(target.global_position + bolt_offset + Vector2.LEFT * hit_info.get_direction() * 20, false, hit_info.get_direction())
+		var bolt = _spawn_bolt(target.global_position + bolt_offset + Vector2.LEFT * hit_info.get_direction() * 20, false, hit_info.get_direction())
+		bolt.play_stream(_stream_stuck_in_tree)
+		
 
 
 func _reflect_crossbow(obstacle: Obstacle, hit_info: HitInfo) -> void:

@@ -10,3 +10,5 @@ scale = Vector2( 6, 6 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 velocity = 1000.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

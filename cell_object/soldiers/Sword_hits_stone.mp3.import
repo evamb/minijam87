@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sword_hits_stone.mp3-b8df50e0d20e2139d556ff91885d1adb.mp3str"
+
+[deps]
+
+source_file="res://cell_object/soldiers/Sword_hits_stone.mp3"
+dest_files=[ "res://.import/Sword_hits_stone.mp3-b8df50e0d20e2139d556ff91885d1adb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Crossbow_bolt_fired.mp3-8fdb7f9fdd7c6ee31e1837e7c5f68919.mp3str"
+
+[deps]
+
+source_file="res://cell_object/soldiers/Crossbow_bolt_fired.mp3"
+dest_files=[ "res://.import/Crossbow_bolt_fired.mp3-8fdb7f9fdd7c6ee31e1837e7c5f68919.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
