@@ -12,7 +12,7 @@ const HIT_MARK_COLOR = Color8(178, 43, 43, 137)  # red
 const DROP_BLOCKED_COLOR = Color8(178, 43, 43, 137)  # red
 const CAN_PICK_COLOR = Color8(210, 218, 218, 118)  # white
 const CAN_DROP_COLOR = Color8(94, 202, 69, 135)  # green
-const EMPTY_COLOR = Color.white
+const EMPTY_COLOR = Color.transparent
 
 var _occupant: CellObject = null setget set_occupant
 var _cell_pos: Vector2 = Vector2.ZERO setget set_cell_pos, get_cell_pos
@@ -36,7 +36,7 @@ onready var _tween = $Tween
 
 
 func _ready() -> void:
-	modulate.a = 0
+	modulate = EMPTY_COLOR
 
 
 func set_exceeds_mana(enabled: bool) -> void:
@@ -142,28 +142,29 @@ func hit(hit_info: HitInfo) -> bool:
 
 func _update_modulate() -> void:
 	var drop_forbidden = _exceeds_mana or _on_enemy_side or occupant_blocks_drop()
-	var modulate_color = Color.white
+	var modulate_color = EMPTY_COLOR
 	match [_hit_marks_enabled, _droppable_on_cursor, _hovering, drop_forbidden]:
 		[true, _, _, _]: modulate_color = HIT_MARK_COLOR
 		[false, false, true, _]:
 			if occupant_can_be_moved():
 				modulate_color = CAN_PICK_COLOR
 				_show_occupant_hit_marks(true)
-			else:
-				modulate_color = EMPTY_COLOR
 		[false, true, true, false]:
 			modulate_color = CAN_DROP_COLOR
 		[false, true, true, true]:
 			modulate_color = DROP_BLOCKED_COLOR
-		_: modulate_color = EMPTY_COLOR
 	if _occupant and _occupant.is_large:
 		_tween.interpolate_property(_occupant,
 			"modulate",
 			null,
 			Color(1, 1, 1, 0.3) if _look_through else Color.white, 0.25)
+	var start_col = null
+	if modulate.a == 0:
+		start_col = Color(modulate_color.r, modulate_color.g, modulate_color.b, 0)
 	if modulate_color == EMPTY_COLOR:
-		modulate_color.a = 0
-	_tween.interpolate_property(self, "modulate", null, modulate_color, 0.15)
+		modulate_color = Color(modulate_color.r, modulate_color.g, modulate_color.b, 0)
+		
+	_tween.interpolate_property(self, "modulate", start_col, modulate_color, 0.15)
 	_tween.start()
 
 
