@@ -54,7 +54,7 @@ func hit(hit_info: HitInfo) -> bool:
 	var source_name = hit_info.get_source().name
 	var death_delay = 0.5
 	if "Bow" in source_name:
-		death_delay = 1.5
+		death_delay = 1.5 if hit_info.get_bounces() == 0 else 2.4
 	_play_anim("death", death_delay)
 	if "Crossbow" in source_name:
 		return false

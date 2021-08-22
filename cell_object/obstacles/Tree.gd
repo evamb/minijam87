@@ -4,6 +4,7 @@ extends Obstacle
 var has_fallen = false
 
 onready var _animation_player: AnimationPlayer = $AnimationPlayer
+onready var _sprite = $Sprite
 
 
 func hit(hit_info: HitInfo) -> bool:
@@ -21,8 +22,18 @@ func fall_left() -> void:
 	_animation_player.play("fall_left")
 
 
+func arrow_fall_left() -> void:
+	_animation_player.play("arrow_fall_left")
+
+
+func arrow_fall_right() -> void:
+	_animation_player.play("arrow_fall_right")
+
+
 func reset() -> void:
 	.reset()
 	if has_fallen:
 		_animation_player.play_backwards()
 		has_fallen = false
+	else:
+		_sprite.frame = 0

@@ -135,9 +135,15 @@ func occupant_blocks_drop() -> bool:
 
 
 func hit(hit_info: HitInfo) -> bool:
-	modulate = HIT_MARK_COLOR
+	_fade_hit()
 	# returns true if hit should continue moving
 	return not _occupant or _occupant.hit(hit_info)
+
+
+func _fade_hit() -> void:
+	yield(get_tree().create_timer(2), "timeout")
+	_tween.interpolate_property(self, "modulate", null, HIT_MARK_COLOR, .5)
+	_tween.start()
 
 
 func _update_modulate() -> void:
