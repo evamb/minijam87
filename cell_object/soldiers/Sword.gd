@@ -8,9 +8,8 @@ func weapon_hit_obstacle(obstacle: Obstacle, hit_info: HitInfo) -> bool:
 		return false
 	if "Tree" in obstacle.name:
 		_chop_tree(obstacle, hit_info)
-		return false
 	return true
-	
+
 
 func _play_fail() -> void:
 	if _anim_wait_timer:

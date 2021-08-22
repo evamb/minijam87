@@ -195,3 +195,7 @@ func _on_Grid_all_standing() -> void:
 	monitoring = true
 	for soldier in get_tree().get_nodes_in_group("soldiers"):
 		soldier.start_attack()
+
+
+func _on_TutorialLayer_cursor_enabled(enabled: bool) -> void:
+	monitoring = enabled

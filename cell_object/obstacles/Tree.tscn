@@ -63,6 +63,7 @@ tracks/3/keys = {
 modulate = Color( 1, 1, 1, 1 )
 script = ExtResource( 5 )
 blocks_drop = false
+is_large = true
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 3, -123 )

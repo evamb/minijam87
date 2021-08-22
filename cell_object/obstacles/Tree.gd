@@ -9,7 +9,7 @@ onready var _sprite = $Sprite
 
 func hit(hit_info: HitInfo) -> bool:
 	if has_fallen:
-		return false
+		return true
 	has_fallen = has_fallen or "Sword" in hit_info.get_source().name
 	return .hit(hit_info)
 

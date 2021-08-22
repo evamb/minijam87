@@ -67,7 +67,7 @@ func hit(hit_info: HitInfo) -> bool:
 	if "Bow" in source_name:
 		death_delay = 1.5 if hit_info.get_bounces() == 0 else 2.4
 		stream = _stream_arrow_hits
-	if source != self:
+	if source != self or "Crossbow" in source_name:
 		_play_anim("death", death_delay, stream)
 	if "Crossbow" in source_name:
 		return false

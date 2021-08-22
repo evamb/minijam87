@@ -13,3 +13,4 @@ func _on_Button_button_up() -> void:
 	._on_Button_button_up()
 	_tween.interpolate_property(_score, "modulate", Color.white, Color.transparent, 1)
 	_tween.start()
+	Globals.reset_used_mana()

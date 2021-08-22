@@ -90,7 +90,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -405, 45 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell83" parent="Grid" index="13" instance=ExtResource( 4 )]
 position = Vector2( -405, 135 )
@@ -141,7 +140,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -315, 225 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell91" parent="Grid" index="25" instance=ExtResource( 4 )]
 position = Vector2( -225, -225 )
@@ -155,7 +153,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -225, -135 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell93" parent="Grid" index="28" instance=ExtResource( 4 )]
 position = Vector2( -225, -45 )
@@ -177,7 +174,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -225, 225 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell97" parent="Grid" index="33" instance=ExtResource( 4 )]
 position = Vector2( -135, -225 )
@@ -219,7 +215,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( -45, -45 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell106" parent="Grid" index="43" instance=ExtResource( 4 )]
 position = Vector2( -45, 45 )
@@ -315,7 +310,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( 225, -45 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell124" parent="Grid" index="66" instance=ExtResource( 4 )]
 position = Vector2( 225, 45 )
@@ -325,7 +319,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( 225, 45 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell125" parent="Grid" index="68" instance=ExtResource( 4 )]
 position = Vector2( 225, 135 )
@@ -431,7 +424,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( 495, 135 )
 script = ExtResource( 9 )
 blocks_drop = true
-is_large = true
 
 [node name="GridCell144" parent="Grid" index="94" instance=ExtResource( 4 )]
 position = Vector2( 495, 225 )

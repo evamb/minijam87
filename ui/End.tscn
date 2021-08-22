@@ -65,7 +65,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 3 )
 enabled_focus_mode = 0
-text = "Play"
+text = "Play again"
 flat = true
 
 [node name="Wizard" parent="." instance=ExtResource( 9 )]

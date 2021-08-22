@@ -397,39 +397,6 @@ scale = Vector2( 1.375, 1.375 )
 position = Vector2( 495, 225 )
 scale = Vector2( 1.375, 1.375 )
 
-[node name="Crossbow" parent="Grid" index="97"]
-z_index = 1
-
-[node name="Sword" parent="Grid" index="117"]
-z_index = 1
-
-[node name="Crossbow2" parent="Grid" index="135"]
-z_index = 1
-
-[node name="Bow" parent="Grid" index="149"]
-z_index = 1
-
-[node name="Sword2" parent="Grid" index="153"]
-z_index = 1
-
-[node name="Bow2" parent="Grid" index="155"]
-z_index = 1
-
-[node name="Sword3" parent="Grid" index="159"]
-z_index = 1
-
-[node name="Crossbow3" parent="Grid" index="164"]
-z_index = 1
-
-[node name="Sword4" parent="Grid" index="176"]
-z_index = 1
-
-[node name="Sword5" parent="Grid" index="178"]
-z_index = 1
-
-[node name="Sword9" parent="Grid" index="181"]
-z_index = 1
-
 [node name="Cursor" parent="." index="2"]
 level = 1
 

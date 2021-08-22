@@ -11,56 +11,19 @@ level_coordinates = {
 Vector2( 0, 3 ): "tree",
 Vector2( 0, 4 ): "rock",
 Vector2( 1, 2 ): "rock",
-Vector2( 1, 4 ): "sword",
 Vector2( 1, 5 ): "rock",
 Vector2( 2, 4 ): "bow",
 Vector2( 3, 0 ): "crossbow",
 Vector2( 5, 1 ): "tree",
 Vector2( 5, 4 ): "sword",
-Vector2( 6, 5 ): "sword",
-Vector2( 7, 0 ): "rock",
 Vector2( 7, 1 ): "sword",
 Vector2( 7, 5 ): "sword",
 Vector2( 8, 0 ): "tree",
-Vector2( 9, 4 ): "crossbow",
-Vector2( 9, 5 ): "sword",
+Vector2( 8, 5 ): "sword",
 Vector2( 11, 2 ): "crossbow",
 Vector2( 11, 3 ): "bow",
 Vector2( 11, 4 ): "rock"
 }
-
-[node name="Crossbow" parent="Grid" index="4"]
-z_index = 1
-
-[node name="Sword" parent="Grid" index="24"]
-z_index = 1
-
-[node name="Crossbow2" parent="Grid" index="42"]
-z_index = 1
-
-[node name="Bow" parent="Grid" index="56"]
-z_index = 1
-
-[node name="Sword2" parent="Grid" index="60"]
-z_index = 1
-
-[node name="Bow2" parent="Grid" index="62"]
-z_index = 1
-
-[node name="Sword3" parent="Grid" index="66"]
-z_index = 1
-
-[node name="Crossbow3" parent="Grid" index="71"]
-z_index = 1
-
-[node name="Sword4" parent="Grid" index="83"]
-z_index = 1
-
-[node name="Sword5" parent="Grid" index="85"]
-z_index = 1
-
-[node name="Sword9" parent="Grid" index="88"]
-z_index = 1
 
 [node name="TutorialLayer" type="CanvasLayer" parent="." index="5"]
 script = ExtResource( 2 )
@@ -74,5 +37,6 @@ margin_bottom = -801.0
 
 [connection signal="all_standing" from="Grid" to="TutorialLayer" method="_on_Grid_all_standing"]
 [connection signal="soldier_hovered" from="Cursor" to="TutorialLayer" method="_on_Cursor_soldier_hovered"]
+[connection signal="cursor_enabled" from="TutorialLayer" to="Cursor" method="_on_TutorialLayer_cursor_enabled"]
 
 [editable path="CanvasLayer/IngameUI"]

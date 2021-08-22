@@ -2,18 +2,19 @@ extends CanvasLayer
 
 signal soldiers_arrived
 signal soldier_hovered
+signal cursor_enabled
 
 const dialog = [
 	"The glade, beautiful as always. But what's this? Someone's coming! (click to proceed)",
 	"FREEZE!",
 	"You won't defile this place with your blood!",
 	"I won't let them kill each other. Maybe I can prevent this battle...",
-	"Move your mouse on top of a soldier to see where they will attack!",
+	"Move your mouse on top of a soldier to see where they want to attack!",
 	"%s %s %s %s" % [
 		"Hold your left mouse button to move soldiers.",
-		"Make sure they don't kill anybody. The red areas tell you where",
-		"they'll deal damage. But beware: hitting the surroundings might",
-		"change the outcome of an attack."
+		"Make sure they don't kill anybody.",
+		"Beware: hitting the surroundings might",
+		"change the outcome of an attack!"
 	],
 	"Moving soldiers consumes mana, so move them as little as possible!"
 ]
@@ -33,6 +34,7 @@ func _play_dialog() -> void:
 	yield(_textbox.play_text(dialog[0]), "completed")
 	get_tree().paused = false
 	yield(self, "soldiers_arrived")
+	emit_signal("cursor_enabled", false)
 	get_tree().paused = true
 	yield(_textbox.play_text(dialog[1]), "completed") # freeze
 	get_tree().paused = false
@@ -40,6 +42,7 @@ func _play_dialog() -> void:
 	yield(_textbox.play_text(dialog[2]), "completed")
 	yield(_textbox.play_text(dialog[3]), "completed")
 	yield(_textbox.play_text(dialog[4]), "completed")
+	emit_signal("cursor_enabled", true)
 	get_tree().paused = false
 	yield(self, "soldier_hovered")
 	yield(get_tree().create_timer(1), "timeout")

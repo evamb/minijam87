@@ -26,6 +26,10 @@ func get_used_mana() -> int:
 	return sum
 
 
+func reset_used_mana() -> void:
+	_used_mana = {}
+
+
 func calc_hit_cells(start_cell_pos: Vector2, target_cells: Array, direction: int) -> Array:
 	var cells = Array()
 	for cell_pos in target_cells:

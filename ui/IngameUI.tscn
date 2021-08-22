@@ -98,7 +98,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 1 )
 text = "Success! They're leaving!
-You've used {mana} moves."
+You've used {mana} total moves."
 align = 1
 
 [node name="ProceedButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
@@ -130,7 +130,6 @@ margin_right = 375.0
 margin_bottom = 473.0
 custom_fonts/font = ExtResource( 1 )
 text = "Remaining moves"
-align = 2
 valign = 1
 
 [node name="Mana" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
@@ -140,7 +139,6 @@ margin_bottom = 528.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "10"
-align = 2
 valign = 1
 
 [node name="LabelTotal" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
@@ -149,7 +147,6 @@ margin_right = 375.0
 margin_bottom = 583.0
 custom_fonts/font = ExtResource( 1 )
 text = "Total moves"
-align = 2
 valign = 1
 
 [node name="TotalManaUsed" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
@@ -158,7 +155,6 @@ margin_right = 375.0
 margin_bottom = 638.0
 custom_fonts/font = ExtResource( 1 )
 text = "50"
-align = 2
 valign = 1
 
 [node name="Tween" type="Tween" parent="."]
