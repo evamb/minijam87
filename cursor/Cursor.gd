@@ -7,6 +7,7 @@ signal failed
 signal succeeded
 signal picked
 signal dropped
+signal soldier_hovered
 
 export(int) var level = 0
 export(int) var start_mana = 10
@@ -116,6 +117,8 @@ func _area_entered(area: Area2D) -> void:
 	if area is GridCell:
 		area.set_hovering(true)
 		area.set_droppable_on_cursor(_dragged_area != null)
+		if area.occupant_can_be_moved():
+			emit_signal("soldier_hovered")
 		if _dragged_area:
 			var mana_result = _mana - _get_mana_cost(area, _dragged_area)
 			area.set_exceeds_mana(mana_result < 0)

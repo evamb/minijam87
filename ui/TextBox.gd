@@ -6,10 +6,6 @@ onready var _tween = $Tween
 onready var _label = $RichTextLabel
 
 func _ready() -> void:
-	# this is how it works
-	yield(play_text("hello world! lorem ipsum dolor sit amet"), "completed")
-	yield(play_text("second text blabla foobar!"), "completed")
-	play_text("the final textdown!")
 	pass
 
 
@@ -21,7 +17,9 @@ func _process(delta: float) -> void:
 
 
 func play_text(new_text: String) -> void:
+	visible = true
 	_label.text = new_text
+	_label.percent_visible = 0
 	_tween.interpolate_property(_label, "percent_visible", 0.0, 1.0, new_text.length() * 0.05)
 	_tween.start()
 	var tween_wait_state = wait_for_tween()
@@ -29,7 +27,7 @@ func play_text(new_text: String) -> void:
 	while tween_wait_state.is_valid() and skip_wait_state.is_valid():
 		yield(get_tree(), "idle_frame")
 	yield(self, "skipped")
-
+	visible = false
 
 func wait_for_skip() -> void:
 	yield(self, "skipped")
