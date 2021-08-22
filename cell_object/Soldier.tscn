@@ -47,5 +47,5 @@ frame = 3
 playing = true
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -64 )
+position = Vector2( -8, -48 )
 scale = Vector2( 6, 6 )
