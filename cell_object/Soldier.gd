@@ -6,13 +6,14 @@ signal got_hit
 
 export(Array, Vector2) var target_cells
 
+onready var _magic_sprite = $AnimatedSprite
+
 
 func spawn() -> void:
 	_tween.interpolate_property(self, "position",
 			position + Vector2.LEFT * 1000 * _direction, position, rand_range(4.0, 5.0), Tween.TRANS_CUBIC)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
-	print("spawn completed!")
 
 
 func _ready() -> void:
@@ -23,6 +24,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		execute_attack()
+
+
+func set_direction(dir: int) -> void:
+	.set_direction(dir)
+	_sprite.flip_h = dir < 0
 
 
 func get_hit_cells() -> Array:
@@ -44,3 +50,7 @@ func hit(hit_info: HitInfo) -> bool:
 
 func weapon_hit_obstacle(_obstacle: Obstacle, _hit_info: HitInfo) -> bool:
 	return true
+
+
+func set_picked(picked: bool) -> void:
+	_magic_sprite.visible = picked

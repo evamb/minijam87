@@ -43,6 +43,7 @@ position = Vector2( 0, -40 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 5 )
 animation = "magic"
+frame = 3
 playing = true
 
 [node name="Sprite" parent="." index="1"]

@@ -22,7 +22,6 @@ func set_cell_pos(cell_pos: Vector2) -> void:
 
 func set_direction(dir: int) -> void:
 	_direction = dir
-	_sprite.flip_h = dir < 0
 
 
 func set_target(pos: Vector2, do_tween = true) -> void:

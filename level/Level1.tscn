@@ -1,0 +1,406 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://cell_object/obstacles/Tree.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cell_object/obstacles/Rock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://grid/GridCell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cell_object/soldiers/Crossbow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cell_object/soldiers/Bow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://cell_object/soldiers/Sword.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Main.tscn" type="PackedScene" id=7]
+
+[node name="Level1" instance=ExtResource( 7 )]
+
+[node name="Grid" parent="." index="1"]
+random = true
+level_coordinates = {
+Vector2( 0, 1 ): "bow",
+Vector2( 0, 2 ): "crossbow",
+Vector2( 0, 4 ): "sword",
+Vector2( 1, 0 ): "tree",
+Vector2( 2, 2 ): "rock",
+Vector2( 3, 4 ): "sword",
+Vector2( 4, 0 ): "rock",
+Vector2( 5, 1 ): "rock",
+Vector2( 5, 2 ): "tree",
+Vector2( 6, 1 ): "tree",
+Vector2( 6, 3 ): "crossbow",
+Vector2( 6, 4 ): "tree",
+Vector2( 7, 0 ): "sword",
+Vector2( 7, 1 ): "bow",
+Vector2( 8, 0 ): "rock",
+Vector2( 8, 5 ): "bow",
+Vector2( 9, 2 ): "crossbow",
+Vector2( 9, 4 ): "tree",
+Vector2( 10, 1 ): "crossbow",
+Vector2( 10, 4 ): "tree",
+Vector2( 11, 0 ): "rock"
+}
+
+[node name="GridCell73" parent="Grid" index="0" instance=ExtResource( 3 )]
+position = Vector2( -495, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell74" parent="Grid" index="1" instance=ExtResource( 3 )]
+position = Vector2( -495, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Bow3" parent="Grid" index="2" instance=ExtResource( 5 )]
+position = Vector2( -495, -135 )
+z_index = 1
+
+[node name="GridCell75" parent="Grid" index="3" instance=ExtResource( 3 )]
+position = Vector2( -495, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Crossbow4" parent="Grid" index="4" instance=ExtResource( 4 )]
+position = Vector2( -495, -45 )
+z_index = 1
+
+[node name="GridCell76" parent="Grid" index="5" instance=ExtResource( 3 )]
+position = Vector2( -495, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell77" parent="Grid" index="6" instance=ExtResource( 3 )]
+position = Vector2( -495, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Sword6" parent="Grid" index="7" instance=ExtResource( 6 )]
+position = Vector2( -495, 135 )
+z_index = 1
+
+[node name="GridCell78" parent="Grid" index="8" instance=ExtResource( 3 )]
+position = Vector2( -495, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell79" parent="Grid" index="9" instance=ExtResource( 3 )]
+position = Vector2( -405, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Tree4" parent="Grid" index="10" instance=ExtResource( 1 )]
+position = Vector2( -405, -225 )
+
+[node name="GridCell80" parent="Grid" index="11" instance=ExtResource( 3 )]
+position = Vector2( -405, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell81" parent="Grid" index="12" instance=ExtResource( 3 )]
+position = Vector2( -405, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell82" parent="Grid" index="13" instance=ExtResource( 3 )]
+position = Vector2( -405, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell83" parent="Grid" index="14" instance=ExtResource( 3 )]
+position = Vector2( -405, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell84" parent="Grid" index="15" instance=ExtResource( 3 )]
+position = Vector2( -405, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell85" parent="Grid" index="16" instance=ExtResource( 3 )]
+position = Vector2( -315, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell86" parent="Grid" index="17" instance=ExtResource( 3 )]
+position = Vector2( -315, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell87" parent="Grid" index="18" instance=ExtResource( 3 )]
+position = Vector2( -315, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Rock4" parent="Grid" index="19" instance=ExtResource( 2 )]
+position = Vector2( -315, -45 )
+
+[node name="GridCell88" parent="Grid" index="20" instance=ExtResource( 3 )]
+position = Vector2( -315, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell89" parent="Grid" index="21" instance=ExtResource( 3 )]
+position = Vector2( -315, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell90" parent="Grid" index="22" instance=ExtResource( 3 )]
+position = Vector2( -315, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell91" parent="Grid" index="23" instance=ExtResource( 3 )]
+position = Vector2( -225, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell92" parent="Grid" index="24" instance=ExtResource( 3 )]
+position = Vector2( -225, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell93" parent="Grid" index="25" instance=ExtResource( 3 )]
+position = Vector2( -225, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell94" parent="Grid" index="26" instance=ExtResource( 3 )]
+position = Vector2( -225, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell95" parent="Grid" index="27" instance=ExtResource( 3 )]
+position = Vector2( -225, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Sword7" parent="Grid" index="28" instance=ExtResource( 6 )]
+position = Vector2( -225, 135 )
+z_index = 1
+
+[node name="GridCell96" parent="Grid" index="29" instance=ExtResource( 3 )]
+position = Vector2( -225, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell97" parent="Grid" index="30" instance=ExtResource( 3 )]
+position = Vector2( -135, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Rock5" parent="Grid" index="31" instance=ExtResource( 2 )]
+position = Vector2( -135, -225 )
+
+[node name="GridCell98" parent="Grid" index="32" instance=ExtResource( 3 )]
+position = Vector2( -135, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell99" parent="Grid" index="33" instance=ExtResource( 3 )]
+position = Vector2( -135, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell100" parent="Grid" index="34" instance=ExtResource( 3 )]
+position = Vector2( -135, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell101" parent="Grid" index="35" instance=ExtResource( 3 )]
+position = Vector2( -135, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell102" parent="Grid" index="36" instance=ExtResource( 3 )]
+position = Vector2( -135, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell103" parent="Grid" index="37" instance=ExtResource( 3 )]
+position = Vector2( -45, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell104" parent="Grid" index="38" instance=ExtResource( 3 )]
+position = Vector2( -45, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Rock6" parent="Grid" index="39" instance=ExtResource( 2 )]
+position = Vector2( -45, -135 )
+
+[node name="GridCell105" parent="Grid" index="40" instance=ExtResource( 3 )]
+position = Vector2( -45, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Tree5" parent="Grid" index="41" instance=ExtResource( 1 )]
+position = Vector2( -45, -45 )
+
+[node name="GridCell106" parent="Grid" index="42" instance=ExtResource( 3 )]
+position = Vector2( -45, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell107" parent="Grid" index="43" instance=ExtResource( 3 )]
+position = Vector2( -45, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell108" parent="Grid" index="44" instance=ExtResource( 3 )]
+position = Vector2( -45, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell109" parent="Grid" index="45" instance=ExtResource( 3 )]
+position = Vector2( 45, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell110" parent="Grid" index="46" instance=ExtResource( 3 )]
+position = Vector2( 45, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Tree6" parent="Grid" index="47" instance=ExtResource( 1 )]
+position = Vector2( 45, -135 )
+
+[node name="GridCell111" parent="Grid" index="48" instance=ExtResource( 3 )]
+position = Vector2( 45, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell112" parent="Grid" index="49" instance=ExtResource( 3 )]
+position = Vector2( 45, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Crossbow5" parent="Grid" index="50" instance=ExtResource( 4 )]
+position = Vector2( 45, 45 )
+z_index = 1
+
+[node name="GridCell113" parent="Grid" index="51" instance=ExtResource( 3 )]
+position = Vector2( 45, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Tree7" parent="Grid" index="52" instance=ExtResource( 1 )]
+position = Vector2( 45, 135 )
+
+[node name="GridCell114" parent="Grid" index="53" instance=ExtResource( 3 )]
+position = Vector2( 45, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell115" parent="Grid" index="54" instance=ExtResource( 3 )]
+position = Vector2( 135, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Sword8" parent="Grid" index="55" instance=ExtResource( 6 )]
+position = Vector2( 135, -225 )
+z_index = 1
+
+[node name="GridCell116" parent="Grid" index="56" instance=ExtResource( 3 )]
+position = Vector2( 135, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Bow4" parent="Grid" index="57" instance=ExtResource( 5 )]
+position = Vector2( 135, -135 )
+z_index = 1
+
+[node name="GridCell117" parent="Grid" index="58" instance=ExtResource( 3 )]
+position = Vector2( 135, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell118" parent="Grid" index="59" instance=ExtResource( 3 )]
+position = Vector2( 135, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell119" parent="Grid" index="60" instance=ExtResource( 3 )]
+position = Vector2( 135, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell120" parent="Grid" index="61" instance=ExtResource( 3 )]
+position = Vector2( 135, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell121" parent="Grid" index="62" instance=ExtResource( 3 )]
+position = Vector2( 225, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Rock7" parent="Grid" index="63" instance=ExtResource( 2 )]
+position = Vector2( 225, -225 )
+
+[node name="GridCell122" parent="Grid" index="64" instance=ExtResource( 3 )]
+position = Vector2( 225, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell123" parent="Grid" index="65" instance=ExtResource( 3 )]
+position = Vector2( 225, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell124" parent="Grid" index="66" instance=ExtResource( 3 )]
+position = Vector2( 225, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell125" parent="Grid" index="67" instance=ExtResource( 3 )]
+position = Vector2( 225, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell126" parent="Grid" index="68" instance=ExtResource( 3 )]
+position = Vector2( 225, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Bow5" parent="Grid" index="69" instance=ExtResource( 5 )]
+position = Vector2( 225, 225 )
+z_index = 1
+
+[node name="GridCell127" parent="Grid" index="70" instance=ExtResource( 3 )]
+position = Vector2( 315, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell128" parent="Grid" index="71" instance=ExtResource( 3 )]
+position = Vector2( 315, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell129" parent="Grid" index="72" instance=ExtResource( 3 )]
+position = Vector2( 315, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Crossbow6" parent="Grid" index="73" instance=ExtResource( 4 )]
+position = Vector2( 315, -45 )
+z_index = 1
+
+[node name="GridCell130" parent="Grid" index="74" instance=ExtResource( 3 )]
+position = Vector2( 315, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell131" parent="Grid" index="75" instance=ExtResource( 3 )]
+position = Vector2( 315, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Tree8" parent="Grid" index="76" instance=ExtResource( 1 )]
+position = Vector2( 315, 135 )
+
+[node name="GridCell132" parent="Grid" index="77" instance=ExtResource( 3 )]
+position = Vector2( 315, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell133" parent="Grid" index="78" instance=ExtResource( 3 )]
+position = Vector2( 405, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell134" parent="Grid" index="79" instance=ExtResource( 3 )]
+position = Vector2( 405, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Crossbow7" parent="Grid" index="80" instance=ExtResource( 4 )]
+position = Vector2( 405, -135 )
+z_index = 1
+
+[node name="GridCell135" parent="Grid" index="81" instance=ExtResource( 3 )]
+position = Vector2( 405, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell136" parent="Grid" index="82" instance=ExtResource( 3 )]
+position = Vector2( 405, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell137" parent="Grid" index="83" instance=ExtResource( 3 )]
+position = Vector2( 405, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Tree9" parent="Grid" index="84" instance=ExtResource( 1 )]
+position = Vector2( 405, 135 )
+
+[node name="GridCell138" parent="Grid" index="85" instance=ExtResource( 3 )]
+position = Vector2( 405, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell139" parent="Grid" index="86" instance=ExtResource( 3 )]
+position = Vector2( 495, -225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Rock8" parent="Grid" index="87" instance=ExtResource( 2 )]
+position = Vector2( 495, -225 )
+
+[node name="GridCell140" parent="Grid" index="88" instance=ExtResource( 3 )]
+position = Vector2( 495, -135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell141" parent="Grid" index="89" instance=ExtResource( 3 )]
+position = Vector2( 495, -45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell142" parent="Grid" index="90" instance=ExtResource( 3 )]
+position = Vector2( 495, 45 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell143" parent="Grid" index="91" instance=ExtResource( 3 )]
+position = Vector2( 495, 135 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="GridCell144" parent="Grid" index="92" instance=ExtResource( 3 )]
+position = Vector2( 495, 225 )
+scale = Vector2( 1.375, 1.375 )
+
+[node name="Cursor" parent="." index="2"]
+level = 1
+
+[node name="IngameUI" parent="CanvasLayer" index="0"]
+next_scene = "res://level/Level2.tscn"
+
+[editable path="CanvasLayer/IngameUI"]

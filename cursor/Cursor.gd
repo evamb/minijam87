@@ -9,6 +9,7 @@ signal picked
 signal dropped
 
 export(int) var level = 0
+export(int) var start_mana = 10
 
 var _latest_area: GridCell
 var _dragged_area: GridCell
@@ -25,6 +26,7 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	connect("area_exited", self, "_area_exited")
 	yield(get_tree(), "idle_frame")
+	_mana = start_mana
 	emit_signal("mana_changed", _mana)
 	monitoring = false
 
@@ -88,6 +90,7 @@ func _drop_occupant() -> void:
 	if _latest_area:
 		_latest_area.set_droppable_on_cursor(false)
 	_picked_occupant.z_index -= 1000
+	_picked_occupant.set_picked(false)
 	_picked_occupant = null
 	_dragged_area = null
 	emit_signal("dropped")
@@ -100,7 +103,9 @@ func _pick_occupant() -> void:
 	_latest_area.set_droppable_on_cursor(true)
 	_dragged_area = _latest_area
 	_picked_occupant = _dragged_area.pick_occupant()
+	_picked_occupant.set_picked(true)
 	_picked_occupant.z_index += 1000
+	
 	for cell in get_tree().get_nodes_in_group("grid_cell"):
 		var on_enemy_side = _dragged_area.position.x < 0 and cell.position.x > 0 or\
 		_dragged_area.position.x > 0 and cell.position.x < 0
@@ -132,12 +137,14 @@ func _reset_grid_cell_alpha() -> void:
 
 
 func _on_UndoButton_button_up() -> void:
+	monitoring = true
 	if not _dragged_area:
 		_undo()
 		_reset_grid_cell_alpha()
 
 
 func _on_RestartButton_button_up() -> void:
+	monitoring = true
 	Globals.set_used_mana(level, 0)
 	while _undo_stack.size() > 0:
 		_undo()
@@ -147,10 +154,11 @@ func _on_RestartButton_button_up() -> void:
 
 
 func _on_StartBattleButton_button_up() -> void:
+	monitoring = false
 	_soldier_got_hit = false
 	var soldiers = get_tree().get_nodes_in_group("soldiers")
 	for soldier in soldiers:
-		soldier.connect("got_hit", self, "_on_Soldier_got_hit")
+		soldier.connect("got_hit", self, "_on_Soldier_got_hit", [], CONNECT_ONESHOT)
 	for soldier in soldiers:
 		soldier.execute_attack()
 	Globals.set_used_mana(level, _used_mana)

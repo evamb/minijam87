@@ -1,5 +1,7 @@
 extends MarginContainer
 
+export(String, FILE) var next_scene
+
 onready var _undo_button = $VBoxContainer/HBoxContainer/UndoButton
 onready var _restart_button = $VBoxContainer/HBoxContainer/RestartButton
 onready var _start_battle_button = $VBoxContainer/HBoxContainer/StartBattleButton
@@ -88,4 +90,4 @@ func _on_ProceedButton_button_up() -> void:
 	_tween.interpolate_property(self, "modulate", null, Color.transparent, 0.5)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene(next_scene)
