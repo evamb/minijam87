@@ -69,6 +69,7 @@ func _on_Cursor_mana_used_changed(mana: int) -> void:
 
 
 func _fade_success(show: bool) -> void:
+	yield(get_tree().create_timer(2), "timeout")
 	_fade_label(_success_label, show)
 	_proceed_button.disabled = not show
 	_tween.interpolate_property(_proceed_button, "modulate", null, Color.white if show else Color.transparent, 0.5)
