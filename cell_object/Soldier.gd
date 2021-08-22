@@ -35,10 +35,12 @@ func get_hit_cells() -> Array:
 	return Globals.calc_hit_cells(_cell_pos, target_cells, _direction)
 
 
-func execute_attack() -> void:
+func execute_attack() -> HitInfo:
 	for cell in get_hit_cells():
-		if not cell.hit(HitInfo.new(self, _direction)):
-			return
+		var hit_info = HitInfo.new(self, _direction, cell)
+		if not cell.hit(hit_info):
+			return hit_info
+	return null
 
 
 func hit(hit_info: HitInfo) -> bool:

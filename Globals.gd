@@ -25,7 +25,7 @@ func calc_hit_cells(start_cell_pos: Vector2, target_cells: Array, direction: int
 
 
 func clone_hit_info(hit_info: HitInfo) -> HitInfo:
-	var new_hit_info = HitInfo.new(hit_info.get_source(), hit_info.get_direction())
+	var new_hit_info = HitInfo.new(hit_info.get_source(), hit_info.get_direction(), hit_info.get_target())
 	for i in hit_info._bounces:
 		new_hit_info.increment_bounces()
 	return new_hit_info
