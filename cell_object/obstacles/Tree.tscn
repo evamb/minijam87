@@ -8,6 +8,6 @@ modulate = Color( 1, 1, 1, 1 )
 is_large = true
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 0, -64 )
+position = Vector2( 99, -167 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 2 )

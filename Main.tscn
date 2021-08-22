@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://grid/Grid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://level/background.png" type="Texture" id=2]
@@ -10,12 +10,7 @@
 [ext_resource path="res://cell_object/obstacles/Rock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://wizard/Wizard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://cell_object/soldiers/Bow.tscn" type="PackedScene" id=10]
-[ext_resource path="res://grid/GridCell.gd" type="Script" id=11]
 [ext_resource path="res://cell_object/obstacles/Tree.tscn" type="PackedScene" id=12]
-[ext_resource path="res://cell_object/Obstacle.gd" type="Script" id=13]
-[ext_resource path="res://cell_object/soldiers/Crossbow.gd" type="Script" id=14]
-[ext_resource path="res://cell_object/soldiers/Sword.gd" type="Script" id=15]
-[ext_resource path="res://cell_object/soldiers/Bow.gd" type="Script" id=16]
 
 [node name="Main" type="Node2D"]
 
@@ -25,7 +20,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Grid" parent="." instance=ExtResource( 1 )]
-position = Vector2( 960, 600 )
+position = Vector2( 960, 582 )
 width = 12
 height = 6
 cell_size = 90
@@ -51,742 +46,350 @@ Vector2( 11, 3 ): "bow",
 Vector2( 11, 4 ): "rock"
 }
 
-[node name="GridCell" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell73" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -495, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell2" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell74" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -495, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell3" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell75" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -495, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell4" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell76" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -495, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Tree" type="Node2D" parent="Grid" instance=ExtResource( 12 )]
+[node name="Tree4" parent="Grid" instance=ExtResource( 12 )]
 position = Vector2( -495, 45 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
-is_large = true
 
-[node name="GridCell5" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell77" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -495, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Rock" type="Node2D" parent="Grid" instance=ExtResource( 8 )]
+[node name="Rock4" parent="Grid" instance=ExtResource( 8 )]
 position = Vector2( -495, 135 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
 
-[node name="GridCell6" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell78" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -495, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell7" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell79" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -405, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell8" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell80" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -405, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell9" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell81" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -405, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Rock2" type="Node2D" parent="Grid" instance=ExtResource( 8 )]
+[node name="Rock5" parent="Grid" instance=ExtResource( 8 )]
 position = Vector2( -405, -45 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
 
-[node name="GridCell10" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell82" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -405, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell11" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell83" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -405, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Sword" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 6 )]
+[node name="Sword6" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( -405, 135 )
-z_index = 1
-script = ExtResource( 15 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, -1 ) ]
 
-[node name="GridCell12" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell84" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -405, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Rock3" type="Node2D" parent="Grid" instance=ExtResource( 8 )]
+[node name="Rock6" parent="Grid" instance=ExtResource( 8 )]
 position = Vector2( -405, 225 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
 
-[node name="GridCell13" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell85" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -315, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell14" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell86" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -315, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell15" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell87" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -315, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell16" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell88" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -315, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell17" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell89" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -315, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Bow" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 10 )]
+[node name="Bow3" parent="Grid" instance=ExtResource( 10 )]
 position = Vector2( -315, 135 )
-z_index = 1
-script = ExtResource( 16 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 5, 1 ) ]
 
-[node name="GridCell18" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell90" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -315, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell19" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell91" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -225, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Crossbow" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 7 )]
+[node name="Crossbow4" parent="Grid" instance=ExtResource( 7 )]
 position = Vector2( -225, -225 )
-z_index = 1
-script = ExtResource( 14 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ), Vector2( 7, 0 ), Vector2( 8, 0 ), Vector2( 9, 0 ), Vector2( 10, 0 ), Vector2( 11, 0 ), Vector2( 12, 0 ) ]
 
-[node name="GridCell20" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell92" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -225, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell21" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell93" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -225, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell22" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell94" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -225, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell23" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell95" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -225, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell24" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell96" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -225, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell25" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell97" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -135, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell26" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell98" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -135, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell27" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell99" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -135, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell28" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell100" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -135, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell29" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell101" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -135, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell30" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell102" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -135, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell31" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell103" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -45, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell32" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell104" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -45, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Tree2" type="Node2D" parent="Grid" instance=ExtResource( 12 )]
+[node name="Tree5" parent="Grid" instance=ExtResource( 12 )]
 position = Vector2( -45, -135 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
-is_large = true
 
-[node name="GridCell33" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell105" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -45, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell34" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell106" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -45, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell35" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell107" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -45, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Sword2" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 6 )]
+[node name="Sword7" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( -45, 135 )
-z_index = 1
-script = ExtResource( 15 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, -1 ) ]
 
-[node name="GridCell36" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell108" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( -45, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell37" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell109" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 45, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell38" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell110" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 45, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell39" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell111" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 45, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell40" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell112" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 45, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell41" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell113" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 45, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell42" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell114" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 45, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Sword3" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 6 )]
+[node name="Sword8" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 45, 225 )
-z_index = 1
-script = ExtResource( 15 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, -1 ) ]
 
-[node name="GridCell43" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell115" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 135, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Rock9" type="Node2D" parent="Grid" instance=ExtResource( 8 )]
+[node name="Rock7" parent="Grid" instance=ExtResource( 8 )]
 position = Vector2( 135, -225 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
 
-[node name="GridCell44" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell116" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 135, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Sword4" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 6 )]
+[node name="Sword10" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 135, -135 )
-z_index = 1
-script = ExtResource( 15 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, -1 ) ]
 
-[node name="GridCell45" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell117" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 135, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell46" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell118" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 135, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell47" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell119" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 135, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell48" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell120" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 135, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Sword5" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 6 )]
+[node name="Sword11" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 135, 225 )
-z_index = 1
-script = ExtResource( 15 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, -1 ) ]
 
-[node name="GridCell49" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell121" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 225, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Tree3" type="Node2D" parent="Grid" instance=ExtResource( 12 )]
+[node name="Tree6" parent="Grid" instance=ExtResource( 12 )]
 position = Vector2( 225, -225 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
-is_large = true
 
-[node name="GridCell50" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell122" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 225, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell51" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell123" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 225, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell52" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell124" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 225, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell53" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell125" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 225, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell54" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell126" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 225, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell55" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell127" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 315, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell56" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell128" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 315, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell57" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell129" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 315, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell58" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell130" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 315, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell59" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell131" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 315, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Crossbow2" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 7 )]
+[node name="Crossbow5" parent="Grid" instance=ExtResource( 7 )]
 position = Vector2( 315, 135 )
-z_index = 1
-script = ExtResource( 14 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ), Vector2( 7, 0 ), Vector2( 8, 0 ), Vector2( 9, 0 ), Vector2( 10, 0 ), Vector2( 11, 0 ), Vector2( 12, 0 ) ]
 
-[node name="GridCell60" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell132" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 315, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Sword9" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 6 )]
+[node name="Sword12" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 315, 225 )
-z_index = 1
-script = ExtResource( 15 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, -1 ) ]
 
-[node name="GridCell61" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell133" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 405, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell62" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell134" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 405, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell63" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell135" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 405, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell64" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell136" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 405, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell65" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell137" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 405, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell66" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell138" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 405, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell67" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell139" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 495, -225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell68" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell140" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 495, -135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="GridCell69" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell141" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 495, -45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Crossbow3" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 7 )]
+[node name="Crossbow6" parent="Grid" instance=ExtResource( 7 )]
 position = Vector2( 495, -45 )
-z_index = 1
-script = ExtResource( 14 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ), Vector2( 4, 0 ), Vector2( 5, 0 ), Vector2( 6, 0 ), Vector2( 7, 0 ), Vector2( 8, 0 ), Vector2( 9, 0 ), Vector2( 10, 0 ), Vector2( 11, 0 ), Vector2( 12, 0 ) ]
 
-[node name="GridCell70" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell142" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 495, 45 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Bow2" type="Node2D" parent="Grid" groups=[
-"soldiers",
-] instance=ExtResource( 10 )]
+[node name="Bow4" parent="Grid" instance=ExtResource( 10 )]
 position = Vector2( 495, 45 )
-z_index = 1
-script = ExtResource( 16 )
-can_be_moved = true
-blocks_drop = true
-target_cells = [ Vector2( 5, 1 ) ]
 
-[node name="GridCell71" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell143" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 495, 135 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
-[node name="Rock10" type="Node2D" parent="Grid" instance=ExtResource( 8 )]
+[node name="Rock8" parent="Grid" instance=ExtResource( 8 )]
 position = Vector2( 495, 135 )
-z_index = 1
-script = ExtResource( 13 )
-blocks_drop = true
 
-[node name="GridCell72" type="Area2D" parent="Grid" groups=[
-"grid_cell",
-] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="GridCell144" parent="Grid" instance=ExtResource( 3 )]
 position = Vector2( 495, 225 )
 scale = Vector2( 1.375, 1.375 )
-script = ExtResource( 11 )
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
 

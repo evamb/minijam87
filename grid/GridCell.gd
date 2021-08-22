@@ -8,10 +8,10 @@ enum States {
 	HOVERED_WITH_CELL_OBJECT = 2,
 }
 
-const HIT_MARK_COLOR = Color.red
-const DROP_BLOCKED_COLOR = Color.red
-const CAN_PICK_COLOR = Color.blue
-const CAN_DROP_COLOR = Color.green
+const HIT_MARK_COLOR = Color8(178, 43, 43, 137)  # red
+const DROP_BLOCKED_COLOR = Color8(178, 43, 43, 137)  # red
+const CAN_PICK_COLOR = Color8(210, 218, 218, 118)  # white
+const CAN_DROP_COLOR = Color8(94, 202, 69, 135)  # green
 const EMPTY_COLOR = Color.white
 
 var _occupant: CellObject = null setget set_occupant
@@ -161,9 +161,7 @@ func _update_modulate() -> void:
 			"modulate",
 			null,
 			Color(1, 1, 1, 0.3) if _look_through else Color.white, 0.25)
-	if modulate_color != EMPTY_COLOR:
-		modulate_color.a = 0.8
-	else:
+	if modulate_color == EMPTY_COLOR:
 		modulate_color.a = 0
 	_tween.interpolate_property(self, "modulate", null, modulate_color, 0.15)
 	_tween.start()
